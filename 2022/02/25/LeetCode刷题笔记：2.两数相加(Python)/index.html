@@ -8,16 +8,16 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>LeetCode刷题笔记：2.两数相加(Python) | MiGooli&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="每日一题，坚持就是胜利">
+  <meta name="description" content="想起来老本行就写写吧">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode刷题笔记：2.两数相加(Python)">
 <meta property="og:url" content="http://example.com/2022/02/25/LeetCode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0%EF%BC%9A2.%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0(Python)/index.html">
 <meta property="og:site_name" content="MiGooli&#39;s Blog">
-<meta property="og:description" content="每日一题，坚持就是胜利">
+<meta property="og:description" content="想起来老本行就写写吧">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/01/02/addtwonumber1.jpg">
 <meta property="article:published_time" content="2022-02-24T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-02-25T11:10:58.133Z">
+<meta property="article:modified_time" content="2022-04-16T14:12:06.664Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="LeetCode">
 <meta name="twitter:card" content="summary">
@@ -68,7 +68,7 @@
 	        
 				<li><a href="/tags/%E6%AF%94%E8%B5%9BWP">比赛WP</a></li>
 	        
-				<li><a href="/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB">技术分享</a></li>
+				<li><a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a></li>
 	        
 			</ul>
 		</nav>
@@ -154,7 +154,7 @@
 		        
 					<li style="width: 25%"><a href="/tags/%E6%AF%94%E8%B5%9BWP">比赛WP</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB">技术分享</a></li>
+					<li style="width: 25%"><a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a></li>
 		        
 				</ul>
 			</nav>
@@ -189,9 +189,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>每日一题，坚持就是胜利</p>
+        <p>想起来老本行就写写吧</p>
 <span id="more"></span>
-
 <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>给你两个 非空 的链表，表示两个非负的整数。它们每位数字都是按照 逆序 的方式存储的，并且每个节点只能存储 一位 数字。</p>
 <p>请你将两个数相加，并以相同形式返回一个表示和的链表。</p>
 <p>你可以假设除了数字 0 之外，这两个数都不会以 0 开头。</p>
@@ -220,7 +219,6 @@
 <p>判断l1和l2是否为空，非空的话用carry存储链表同级节点的和</p>
 <p>利用python的divmod()函数来返回同级节点的和与10相除、相模后的商和余数，最后存入新建的链表中</p>
 <h1 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a>AC代码</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"># class ListNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, val=0, next=None):</span></span><br><span class="line"><span class="comment">#         self.val = val</span></span><br><span class="line"><span class="comment">#         self.next = next</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">addTwoNumbers</span>(<span class="params">self, l1: ListNode, l2: ListNode</span>) -&gt; ListNode:</span></span><br><span class="line">        res = ListNode(<span class="number">0</span>)</span><br><span class="line">        pre = res</span><br><span class="line">        carry = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> l1 <span class="keyword">or</span> l2 <span class="keyword">or</span> carry:</span><br><span class="line">            <span class="keyword">if</span> l1:</span><br><span class="line">                carry += l1.val</span><br><span class="line">                l1 = l1.<span class="built_in">next</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> l2:</span><br><span class="line">                carry += l2.val</span><br><span class="line">                l2 = l2.<span class="built_in">next</span></span><br><span class="line"></span><br><span class="line">            carry, val = <span class="built_in">divmod</span>(carry, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">            pre.<span class="built_in">next</span> = ListNode(val)</span><br><span class="line">            pre = pre.<span class="built_in">next</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res.<span class="built_in">next</span></span><br></pre></td></tr></table></figure>
-
 
       
 
@@ -335,17 +333,17 @@
   
 <nav id="article-nav">
   
-    <a href="/2022/02/26/LeetCode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0%EF%BC%9A3.%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2(Python)/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/02/27/RuoYi-Vue%E7%9A%84%E5%90%AF%E5%8A%A8/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          LeetCode刷题笔记：3.无重复字符的最长子串(Python)
+          RuoYi-Vue的启动
         
       </div>
     </a>
   
   
-    <a href="/2022/02/24/LeetCode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0%EF%BC%9A1.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C(Python)/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2022/02/21/LeetCode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0%EF%BC%9A1.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C(Python)/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">LeetCode刷题笔记：1.两数之和(Python)</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -476,7 +474,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术分享</a>
+                <a href="javascript:void(0)" class="js-tag color5">学习笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -637,5 +635,21 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 </div>
   </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
 </html>

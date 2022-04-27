@@ -126,7 +126,7 @@
 	        
 				<li><a href="/tags/%E6%AF%94%E8%B5%9BWP">比赛WP</a></li>
 	        
-				<li><a href="/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB">技术分享</a></li>
+				<li><a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a></li>
 	        
 			</ul>
 		</nav>
@@ -212,7 +212,7 @@
 		        
 					<li style="width: 25%"><a href="/tags/%E6%AF%94%E8%B5%9BWP">比赛WP</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB">技术分享</a></li>
+					<li style="width: 25%"><a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a></li>
 		        
 				</ul>
 			</nav>
@@ -247,14 +247,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>参加了ctfshow那么多次月赛，第一次拿到这么靠前的名次，记录一下这次做出的题<br><img src="https://img-blog.csdnimg.cn/e43536d443374d638ea6c2f37f42b63e.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBATWlHb29saQ==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
-<span id="more"></span>
-
+        <p>参加了ctfshow那么多次月赛，第一次拿到这么靠前的名次，记录一下这次做出的题<br><img src="https://img-blog.csdnimg.cn/e43536d443374d638ea6c2f37f42b63e.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBATWlHb29saQ==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br><span id="more"></span></p>
 <h2 id="一、WEB篇"><a href="#一、WEB篇" class="headerlink" title="一、WEB篇"></a>一、WEB篇</h2><p>作为队内的web手，差点连签到题都做不出来，属实是拉大胯丢大人了</p>
 <h4 id="web签到"><a href="#web签到" class="headerlink" title="web签到"></a>web签到</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//Author:H3h3QAQ</span></span><br><span class="line"><span class="keyword">include</span> <span class="string">&quot;flag.php&quot;</span>;</span><br><span class="line">highlight_file(<span class="keyword">__FILE__</span>);</span><br><span class="line">error_reporting(<span class="number">0</span>);</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&quot;YBB&quot;</span>])) &#123;</span><br><span class="line">    <span class="keyword">if</span> (hash(<span class="string">&quot;md5&quot;</span>, <span class="variable">$_GET</span>[<span class="string">&quot;YBB&quot;</span>]) == <span class="variable">$_GET</span>[<span class="string">&quot;YBB&quot;</span>]) &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;小伙子不错嘛！！flag给你了：&quot;</span> . <span class="variable">$flag</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;偶吼，带黑阔被窝抓到了！！！！&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>很简单的代码审计，但是当时一根筋想着用数组和0e开头的md5值绕过，本地测试后也无法理解为什么打不通，后来经过其他师傅的提醒才知道hash函数中0e开头的纯数字字符串才和自身的md5值相等，然后用php写个脚本，电脑呼呼叫半天，拿到payload</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="variable">$i</span> = <span class="number">1</span>; <span class="variable">$i</span> &lt;= <span class="number">10000000000</span>; <span class="variable">$i</span>++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (hash(<span class="string">&quot;md5&quot;</span>, <span class="string">&quot;0e&quot;</span>.<span class="variable">$i</span>) == <span class="string">&quot;0e&quot;</span>.<span class="variable">$i</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">&quot;0e&quot;</span>.<span class="variable">$i</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">echo</span> <span class="variable">$i</span>.<span class="string">&quot;\n&quot;</span>;    <span class="comment">// 方便查看跑了几位数</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p>最终payload：?YBB=0e215962017</p>
 </blockquote>
@@ -290,11 +287,8 @@
 <p>百度搜索“以写信收藏体育娱乐以及其他明星为主”，可以发现信虫吧，然后在吧内搜索“山姆”，可以找到这张图的出处，进而找到发帖人的qq<br><img src="https://img-blog.csdnimg.cn/ddcb0c99f6fa4bd8aaa4b155994a6c74.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBATWlHb29saQ==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/cf43851e1db74018b2376d55459b1f95.png" alt="在这里插入图片描述"><img src="https://img-blog.csdnimg.cn/c22860200aeb4be4981337dfc588704f.png" alt="在这里插入图片描述"></p>
 <blockquote>
 <p>ctfshow{893332587}</p>
-</blockquote>
 <h1 id="三、CRYPTO篇"><a href="#三、CRYPTO篇" class="headerlink" title="三、CRYPTO篇"></a>三、CRYPTO篇</h1><p>密码不是我的强项，但这次居然能做两题出来，属于是铁树开花了嗷铁汁萌</p>
-<h4 id="我的木头啊！！！"><a href="#我的木头啊！！！" class="headerlink" title="我的木头啊！！！"></a>我的木头啊！！！</h4><p><img src="https://img-blog.csdnimg.cn/78c21f7216ec4363bce3c8d81f901da2.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBATWlHb29saQ==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>根据题意，先进行栅栏密码解密<br><img src="https://img-blog.csdnimg.cn/4e76f88ce67448d38e15b163cbb7ba43.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBATWlHb29saQ==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
-<blockquote>
-<p>ctfshow{626173653136_mjqxgzjtgi_ymfzzty0_qztiehgb_@ux=h}</p>
+<h4 id="我的木头啊！！！"><a href="#我的木头啊！！！" class="headerlink" title="我的木头啊！！！"></a>我的木头啊！！！</h4><p><img src="https://img-blog.csdnimg.cn/78c21f7216ec4363bce3c8d81f901da2.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBATWlHb29saQ==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>根据题意，先进行栅栏密码解密<br><img src="https://img-blog.csdnimg.cn/4e76f88ce67448d38e15b163cbb7ba43.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBATWlHb29saQ==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>ctfshow{626173653136_mjqxgzjtgi_ymfzzty0_qztiehgb_@ux=h}</p>
 </blockquote>
 <p>看样子应该是由五部分不同的密码组成的，于是分别解码，得到最终flag<br><img src="https://img-blog.csdnimg.cn/91872d6a39d64271a876f88d29d80b45.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBATWlHb29saQ==,size_15,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
 <p><img src="https://img-blog.csdnimg.cn/36643fe8367d4f7785332c589f74080a.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBATWlHb29saQ==,size_12,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/ca517b4510824911bb5cc6c12e2eeac2.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBATWlHb29saQ==,size_13,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/57d1178769d24fd2acad80de4d7bbd7f.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBATWlHb29saQ==,size_13,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/914c704f4a5c414aa597807866b39435.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBATWlHb29saQ==,size_13,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
@@ -594,7 +588,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术分享</a>
+                <a href="javascript:void(0)" class="js-tag color5">学习笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -755,5 +749,21 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 </div>
   </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
 </html>
