@@ -6,22 +6,30 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>李宏毅机器学习笔记：4.Classiication | MiGooli&#39;s Blog</title>
+  <title>HackTheBox_StartingPoint_Tier1_Crocodile | MiGooli&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="关于分类算法的介绍">
+  <meta name="description" content="You need to walk before you can run TASK 1    What nmap scanning switch employs the use of default scripts during a scan?nmap中用于使用默认脚本的参数是：-sC TASK 2    What service version is found to be running on">
 <meta property="og:type" content="article">
-<meta property="og:title" content="李宏毅机器学习笔记：4.Classiication">
-<meta property="og:url" content="http://example.com/2022/04/20/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A4.Classification/index.html">
+<meta property="og:title" content="HackTheBox_StartingPoint_Tier1_Crocodile">
+<meta property="og:url" content="http://example.com/2022/06/04/HackTheBox_StartingPoint_Tier1_Crocodile/index.html">
 <meta property="og:site_name" content="MiGooli&#39;s Blog">
-<meta property="og:description" content="关于分类算法的介绍">
+<meta property="og:description" content="You need to walk before you can run TASK 1    What nmap scanning switch employs the use of default scripts during a scan?nmap中用于使用默认脚本的参数是：-sC TASK 2    What service version is found to be running on">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="c:/Users/29166/AppData/Roaming/Typora/typora-user-images/image-20220419152926020.png">
-<meta property="article:published_time" content="2022-04-19T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-04-27T03:39:44.552Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/04675d20ede54b9b99b6fdb1bf924067.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/fffba1afd9174ff38d1deaf1b8cd5802.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/8078f09870924ac582f7bb694e566117.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/d451f956a19a484bb073d3544ee00bc8.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/7ab73481102846369eea6eb5868925f7.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/6cbb5feadf494f91b7d0616669e59ba2.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/06e79fdad23b46ee956985d219b58892.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/db8d0bf7951149bc98f94425944a0cc5.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/eb0a880a3744436082e239d9279ad6bd.png">
+<meta property="article:published_time" content="2022-06-03T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-05T16:45:03.761Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="学习笔记">
+<meta property="article:tag" content="HackTheBox">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="c:/Users/29166/AppData/Roaming/Typora/typora-user-images/image-20220419152926020.png">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/04675d20ede54b9b99b6fdb1bf924067.png">
   
     <link rel="alternative" href="/atom.xml" title="MiGooli&#39;s Blog" type="application/atom+xml">
   
@@ -50,19 +58,19 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="/assets/bubu.png" class="js-avatar">
+			<img src="/assets/zong.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">MiGooli</a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">被WEB劝退的Python工程师</p>
+		<p class="header-subtitle">路漫漫其修远兮，吾将上下而求索</p>
 		
 
 		<nav class="header-menu">
 			<ul>
 			
-				<li><a href="/tags/LeetCode">LeetCode</a></li>
+				<li><a href="/tags/HackTheBox">HackTheBox</a></li>
 	        
 				<li><a href="/tags/ctfshow">ctfshow</a></li>
 	        
@@ -112,13 +120,13 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="/assets/bubu.png" class="js-avatar">
+				<img src="/assets/zong.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">MiGooli</h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>被WEB劝退的Python工程师<i class="icon icon-quo-right"></i></p>
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>路漫漫其修远兮，吾将上下而求索<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -148,7 +156,7 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 25%"><a href="/tags/LeetCode">LeetCode</a></li>
+					<li style="width: 25%"><a href="/tags/HackTheBox">HackTheBox</a></li>
 		        
 					<li style="width: 25%"><a href="/tags/ctfshow">ctfshow</a></li>
 		        
@@ -169,80 +177,58 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-李宏毅机器学习笔记：4.Classification" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-HackTheBox_StartingPoint_Tier1_Crocodile" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      李宏毅机器学习笔记：4.Classiication
+      HackTheBox_StartingPoint_Tier1_Crocodile
     </h1>
   
 
         
-        <a href="/2022/04/20/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A4.Classification/" class="archive-article-date">
-  	<time datetime="2022-04-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-20</time>
+        <a href="/2022/06/04/HackTheBox_StartingPoint_Tier1_Crocodile/" class="archive-article-date">
+  	<time datetime="2022-06-03T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>关于分类算法的介绍</p>
-<span id="more"></span>
-<h1 id="分类模型应用案例（Classification-Cases）"><a href="#分类模型应用案例（Classification-Cases）" class="headerlink" title="分类模型应用案例（Classification Cases）"></a>分类模型应用案例（Classification Cases）</h1><ul>
-<li><p>信用评分（Credit Scoring）</p>
-</li>
-<li><ul>
-<li>输入：收入、储蓄、职业、年龄、信用历史等</li>
-<li>输出：是否具备贷款的资格</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>医疗诊断（Medical Diagnosis）</p>
-</li>
-<li><ul>
-<li>输入：症状、年龄、性别、病史等</li>
-<li>输出：可能患有的疾病</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>手写文字识别（Handwritten Character Recognition）</p>
-</li>
-<li><ul>
-<li>输入：手写体</li>
-<li>输出：电脑印刷体</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>人脸识别（Face Recognition）</p>
-</li>
-<li><ul>
-<li>输入：面部照片</li>
-<li>输出：人的信息</li>
-</ul>
-</li>
-</ul>
-<h1 id="分类和回归是否一样"><a href="#分类和回归是否一样" class="headerlink" title="分类和回归是否一样"></a>分类和回归是否一样</h1><p>如图所示，如果把分类问题看成回归问题的话，会出现以下两种情况：</p>
-<p>​    1、如左图所示，当分类是Class 1的时候结果是1，分类是Class 2的时候结果是-1；测试的时候，结果接近1的是Class 1，结果接近-1的是Class 2</p>
-<p>这样看来，问题似乎得到了完美的解决，二分类的效果非常好</p>
-<p>​    2、如右图所示，当测试结果远大于1的时候，训练模型为了降低整体的误差，调整分类函数，导致了实际结果的错误</p>
-<p>由于回归模型会对“过于正确”的样本进行处罚，所以当测试结果远大于1的时候，回归模型会从全局角度出发，调整正确的回归函数，导致了结果的不正确，所以不能用回归的思想来处理分类问题</p>
-<p><img src="C:\Users\29166\AppData\Roaming\Typora\typora-user-images\image-20220419152926020.png" alt="image-20220419152926020"></p>
-<h1 id="理想替代方案（Ideal-Alternatives）"><a href="#理想替代方案（Ideal-Alternatives）" class="headerlink" title="理想替代方案（Ideal Alternatives）"></a>理想替代方案（Ideal Alternatives）</h1><ul>
-<li><p>模型<br>模型可以根据特征判断类型，输入是特征，输出是类别</p>
-</li>
-<li><p>损失函数</p>
-<script type="math/tex; mode=display">
-L(f) = \sum_n\delta(f(x^n)\not=\hat{y}^n)</script></li>
-<li><p>如何找到最好的函数<br>感知机（Perceptron）、支持向量机（SVM）等</p>
-</li>
-</ul>
-<h1 id="概率生成模型（Probalitity-Generative-Model）"><a href="#概率生成模型（Probalitity-Generative-Model）" class="headerlink" title="概率生成模型（Probalitity Generative Model）"></a>概率生成模型（<strong>Probalitity Generative Model</strong>）</h1>
+        <p>You need to walk before you can run</p>
+<h2 id="TASK-1-What-nmap-scanning-switch-employs-the-use-of-default-scripts-during-a-scan"><a href="#TASK-1-What-nmap-scanning-switch-employs-the-use-of-default-scripts-during-a-scan" class="headerlink" title="TASK 1    What nmap scanning switch employs the use of default scripts during a scan?"></a>TASK 1    What nmap scanning switch employs the use of default scripts during a scan?</h2><p>nmap中用于使用默认脚本的参数是：<strong>-sC</strong></p>
+<h2 id="TASK-2-What-service-version-is-found-to-be-running-on-port-21"><a href="#TASK-2-What-service-version-is-found-to-be-running-on-port-21" class="headerlink" title="TASK 2    What service version is found to be running on port 21?"></a>TASK 2    What service version is found to be running on port 21?</h2><p>21端口上运行的服务版本是：<strong>vsftpd 3.0.3</strong></p>
+<blockquote>
+<p>nmap -sV 10.129.70.59</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/04675d20ede54b9b99b6fdb1bf924067.png" alt="在这里插入图片描述"></p>
+<h2 id="TASK-3-What-FTP-code-is-returned-to-us-for-the-“Anonymous-FTP-login-allowed”-message"><a href="#TASK-3-What-FTP-code-is-returned-to-us-for-the-“Anonymous-FTP-login-allowed”-message" class="headerlink" title="TASK 3    What FTP code is returned to us for the “Anonymous FTP login allowed” message?"></a>TASK 3    What FTP code is returned to us for the “Anonymous FTP login allowed” message?</h2><p>FTP中允许匿名登录的返回代码是：<strong>230</strong></p>
+<h2 id="TASK-4-What-command-can-we-use-to-download-the-files-we-find-on-the-FTP-server"><a href="#TASK-4-What-command-can-we-use-to-download-the-files-we-find-on-the-FTP-server" class="headerlink" title="TASK 4    What command can we use to download the files we find on the FTP server?"></a>TASK 4    What command can we use to download the files we find on the FTP server?</h2><p>用于下载FTP服务器文件的命令是：<strong>get</strong></p>
+<h2 id="TASK-5-What-is-one-of-the-higher-privilege-sounding-usernames-in-the-list-we-retrieved"><a href="#TASK-5-What-is-one-of-the-higher-privilege-sounding-usernames-in-the-list-we-retrieved" class="headerlink" title="TASK 5    What is one of the higher-privilege sounding usernames in the list we retrieved?"></a>TASK 5    What is one of the higher-privilege sounding usernames in the list we retrieved?</h2><p>获取到的用户名列表中，听起来权限更高的用户名是：<strong>admin</strong></p>
+<p>1、登录FTP服务器，使用匿名登录</p>
+<p>2、查看文件列表，发现userlist</p>
+<p>3、下载userlist到本地，查看列表</p>
+<p>4、列表中看起来权限更高的也就admin</p>
+<p><img src="https://img-blog.csdnimg.cn/fffba1afd9174ff38d1deaf1b8cd5802.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/8078f09870924ac582f7bb694e566117.png" alt="在这里插入图片描述"></p>
+<h2 id="TASK-6-What-version-of-Apache-HTTP-Server-is-running-on-the-target-host"><a href="#TASK-6-What-version-of-Apache-HTTP-Server-is-running-on-the-target-host" class="headerlink" title="TASK 6    What version of Apache HTTP Server is running on the target host?"></a>TASK 6    What version of Apache HTTP Server is running on the target host?</h2><p>靶机上运行的Apache HTTP服务版本是：<strong>2.4.41</strong></p>
+<blockquote>
+<p>nmap -sV 10.129.70.59</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/d451f956a19a484bb073d3544ee00bc8.png" alt="在这里插入图片描述"></p>
+<h2 id="TASK-7-What-is-the-name-of-a-handy-web-site-analysis-plug-in-we-can-install-in-our-browser"><a href="#TASK-7-What-is-the-name-of-a-handy-web-site-analysis-plug-in-we-can-install-in-our-browser" class="headerlink" title="TASK 7    What is the name of a handy web site analysis plug-in we can install in our browser?"></a>TASK 7    What is the name of a handy web site analysis plug-in we can install in our browser?</h2><p>浏览器中方便分析网站的插件是：<strong>wappalyzer</strong></p>
+<h2 id="TASK-8-What-switch-can-we-use-with-gobuster-to-specify-we-are-looking-for-specific-filetypes"><a href="#TASK-8-What-switch-can-we-use-with-gobuster-to-specify-we-are-looking-for-specific-filetypes" class="headerlink" title="TASK 8    What switch can we use with gobuster to specify we are looking for specific filetypes?"></a>TASK 8    What switch can we use with gobuster to specify we are looking for specific filetypes?</h2><p>gobuster中用于查找特定类型文件的参数是：<strong>-x</strong></p>
+<h2 id="TASK-9-What-file-have-we-found-that-can-provide-us-a-foothold-on-the-target"><a href="#TASK-9-What-file-have-we-found-that-can-provide-us-a-foothold-on-the-target" class="headerlink" title="TASK 9    What file have we found that can provide us a foothold on the target?"></a>TASK 9    What file have we found that can provide us a foothold on the target?</h2><p>可以用于发动攻击的文件是：<strong>login.php</strong></p>
+<p>直接打开dirsearch开扫，发现了login.php可以利用</p>
+<p><img src="https://img-blog.csdnimg.cn/7ab73481102846369eea6eb5868925f7.png" alt="在这里插入图片描述"></p>
+<h2 id="Submit-root-flag"><a href="#Submit-root-flag" class="headerlink" title="Submit root flag"></a>Submit root flag</h2><p>1、访问/login.php，发现是个登录页面</p>
+<p><img src="https://img-blog.csdnimg.cn/6cbb5feadf494f91b7d0616669e59ba2.png" alt="在这里插入图片描述"></p>
+<p>2、之前在FTP服务器中发现了用户名文件和密码文件，一起下载下来<br><img src="https://img-blog.csdnimg.cn/06e79fdad23b46ee956985d219b58892.png" alt="在这里插入图片描述"></p>
+<p>3、查看这两个文件，用admin和rKXM59ESxesUFHAd进行登录</p>
+<p><img src="https://img-blog.csdnimg.cn/db8d0bf7951149bc98f94425944a0cc5.png" alt="在这里插入图片描述"></p>
+<p>4、登录成功即可获得flag<br><img src="https://img-blog.csdnimg.cn/eb0a880a3744436082e239d9279ad6bd.png" alt="在这里插入图片描述"></p>
+
       
 
       
@@ -286,7 +272,7 @@ L(f) = \sum_n\delta(f(x^n)\not=\hat{y}^n)</script></li>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">HackTheBox</a>
         		</li>
       		
 		</ul>
@@ -342,7 +328,7 @@ L(f) = \sum_n\delta(f(x^n)\not=\hat{y}^n)</script></li>
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/04/20/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A4.Classification/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/06/04/HackTheBox_StartingPoint_Tier1_Crocodile/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -356,9 +342,18 @@ L(f) = \sum_n\delta(f(x^n)\not=\hat{y}^n)</script></li>
   
 <nav id="article-nav">
   
+    <a href="/2022/06/05/HackTheBox_StartingPoint_Tier1_Responder/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          HackTheBox_StartingPoint_Tier1_Responder
+        
+      </div>
+    </a>
   
-    <a href="/2022/04/16/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A3.Gradient%20Descent/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">李宏毅机器学习笔记：3.Gradient Descent</div>
+  
+    <a href="/2022/06/03/HackTheBox_StartingPoint_Tier1_Sequel/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">HackTheBox_StartingPoint_Tier1_Sequel</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -482,6 +477,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">HackTheBox</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>

