@@ -322,7 +322,7 @@ body {
     /* background-color:#fff; */
     min-height:100%;
     background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), 
-    url('http://pic1.win4000.com/pic/e/2f/dbd61415236.jpg') no-repeat 0% 0%/ cover;
+    url('/assets/hyd.jpg') no-repeat 0% 0%/ cover;
 }
 
 article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary {
